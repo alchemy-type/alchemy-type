@@ -1,4 +1,4 @@
-import passageApi from '../src/services/passage-api.js';
+import makePassage from '../src/passage-form/make-passage.js';
 
 const test = QUnit.test;
 QUnit.module('make passage');
@@ -19,18 +19,8 @@ test('Test saving a passage and get it back', assert => {
     formData.set('text', passage.text);
 
     //Act 
-    passageApi.save(passage);
-    const result = getPassage(formData);
+    const result = makePassage(formData);
     //Assert
     assert.deepEqual(result, passage);
 });
 
-function getPassage(formData) {
-    const passage = {
-        id: formData.get('id'),
-        language: formData.get('language'),
-        title: formData.get('title'),
-        text: formData.get('text')
-    };
-    return passage;
-}
