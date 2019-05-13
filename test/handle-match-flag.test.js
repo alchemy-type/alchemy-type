@@ -1,17 +1,16 @@
+import handleMatchFlag from '../src/practice/handle-match-flag.js';
 const test = QUnit.test;
 
 QUnit.module('handle match flag');
 
-test('set match flag based on first correct char', function(assert) {
+test('set match flag based on first correct char', (assert) => {
     //Arrange
     //Replicate event listener setup
     const passageText = 'passage text';
     const passageArray = Array.from(passageText);
     const emptyArray = Array(passageText.length);
-    let userInputLength = 0;
-    emptyArray[userInputLength] = 'p';
-    //Model setting the userInputLength = to event.target.value.length
-    userInputLength = 1;
+    let userInputLength = 1;
+    emptyArray[userInputLength - 1] = 'p';
     const expected = true;
     //act
     const result = handleMatchFlag(emptyArray, passageArray, userInputLength);
@@ -19,16 +18,14 @@ test('set match flag based on first correct char', function(assert) {
     assert.equal(result, expected);
 });
 
-test('set match flag based on first wrong char', function(assert) {
+test('set match flag based on first wrong char', (assert) => {
     //Arrange
     //Replicate event listener setup
     const passageText = 'passage text';
     const passageArray = Array.from(passageText);
     const emptyArray = Array(passageText.length);
-    let userInputLength = 0;
-    emptyArray[userInputLength] = 'o';
-    //Model setting the userInputLength = to event.target.value.length
-    userInputLength = 1;
+    let userInputLength = 1;
+    emptyArray[userInputLength - 1] = 'o';
     const expected = false;
     //act
     const result = handleMatchFlag(emptyArray, passageArray, userInputLength);
@@ -36,10 +33,32 @@ test('set match flag based on first wrong char', function(assert) {
     assert.equal(result, expected);
 });
 
-function handleMatchFlag(emptyArray, passageArray, userInputLength) {
-    if(emptyArray[userInputLength - 1] !== passageArray[userInputLength - 1]) {
-        return false;
-    } else {
-        return true;
-    }
-}
+test('set match flag based on last character correct', (assert) => {
+    //Arrange
+    //Replicate event listener setup
+    const passageText = 'passage text';
+    const passageArray = Array.from(passageText);
+    const emptyArray = Array(passageText.length);
+    let userInputLength = 6;
+    emptyArray[userInputLength - 1] = 'g';
+    const expected = true;
+    //act
+    const result = handleMatchFlag(emptyArray, passageArray, userInputLength);
+    //assert
+    assert.equal(result, expected);
+});
+
+test('set match flag based on last character correct', (assert) => {
+    //Arrange
+    //Replicate event listener setup
+    const passageText = 'passage text';
+    const passageArray = Array.from(passageText);
+    const emptyArray = Array(passageText.length);
+    let userInputLength = 6;
+    emptyArray[userInputLength - 1] = 'z';
+    const expected = false;
+    //act
+    const result = handleMatchFlag(emptyArray, passageArray, userInputLength);
+    //assert
+    assert.equal(result, expected);
+});
