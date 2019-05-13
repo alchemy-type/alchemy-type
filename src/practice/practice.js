@@ -16,8 +16,8 @@ let matchFlag = true;
 
 
 userInput.addEventListener('input', (event) => {
-    emptyArray[userInputLength] = event.target.value[userInputLength];
     userInputLength = event.target.value.length;
+    emptyArray[userInputLength - 1] = event.target.value[userInputLength - 1];
     if(emptyArray[userInputLength - 1] !== passageArray[userInputLength - 1]) {
         matchFlag = false;
     } else {
