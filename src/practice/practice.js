@@ -12,8 +12,18 @@ const passageArray = Array.from(passageText);
 const emptyArray = Array(passageText.length);
 
 let userInputCharaters = 0;
+let matchFlag = true;
 
 userInput.addEventListener('input', (event) => {
     emptyArray[userInputCharaters] = event.target.value[userInputCharaters];
     userInputCharaters = event.target.value.length;
+    if(emptyArray[userInputCharaters - 1] !== passageArray[userInputCharaters - 1]) {
+        matchFlag = false;
+    }
+});
+
+userInput.addEventListener('keydown', event => {
+    if(!matchFlag) {
+        event.preventDefault();
+    }
 });
