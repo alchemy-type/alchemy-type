@@ -8,7 +8,7 @@ test('Test saving a passage and get it back', assert => {
     const passage = {
         id: 'JavaScriptpassage',
         language: 'JavaScript',
-        title: 'Passage Title',
+        title: 'passage',
         text: 'This is a test passage.\nThis is a second line'
     };
 
