@@ -1,4 +1,4 @@
-import createPassageLink from '../src/passages/create-passage-link.js';
+import createPassageLink from '../src/passage-list/create-passage-link.js';
 
 const test = QUnit.test;
 QUnit.module('Create passage link');
@@ -10,7 +10,7 @@ test('take passage and create link', assert => {
         title: 'Test Passage',
     };
 
-    const expected = '<a class="passage" href="passages.html?id=test">Test Passage</a>';
+    const expected = '<a class="passage" href="passage.html?id=test"><section>Test Passage</section></a>';
 
     //act
 
