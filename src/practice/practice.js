@@ -2,6 +2,7 @@ import passages from '../services/passage-data.js';
 import createSpans from './create-spans.js';
 import handleMatchFlag from './handle-match-flag.js';
 import handleCurrentChar from './handle-current-char.js';
+import handleErrorChar from './handle-error-char.js';
 
 let passageParent = document.getElementById('passage-characters');
 let userInput = document.getElementById('passage-input');
@@ -23,6 +24,7 @@ userInput.addEventListener('input', (event) => {
     currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
     emptyArray[userInputLength - 1] = event.target.value[userInputLength - 1];
     matchFlag = handleMatchFlag(emptyArray, passageArray, userInputLength);
+    handleErrorChar(matchFlag, passageParent, currentChar, userInputLength);
 });
 
 userInput.addEventListener('keydown', event => {
