@@ -5,3 +5,7 @@
 .error-char {
     background-color: red;
 }
+
+section {
+    text-align: left;
+}
