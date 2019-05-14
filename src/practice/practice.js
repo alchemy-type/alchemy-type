@@ -32,3 +32,7 @@ userInput.addEventListener('keydown', event => {
         event.preventDefault();
     }
 });
+
+userInput.addEventListener('blur', () => {
+    userInput.focus();
+});
