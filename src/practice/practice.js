@@ -32,7 +32,6 @@ userInput.addEventListener('input', (event) => {
         currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
         matchFlag = handleMatchFlag(emptyArray, passageArray, userInputLength);
         handleErrorChar(matchFlag, passageParent, currentChar, userInputLength);
-        console.log(currentChar);
     }
 });
 
