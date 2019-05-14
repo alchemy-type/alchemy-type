@@ -4,4 +4,4 @@ import './passage-api.test.js';
 import './make-passage.test.js';
 import './handle-current-char.test.js';
 import './handle-error-char.test.js';
-
+import './find-by-id.test.js';
