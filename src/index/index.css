@@ -26,8 +26,13 @@ body {
 }
 
 section {
-    padding-top: 25px;
+    margin-top: 25px;
+    padding: 25px;
     width: 400px;
+    border: 2px solid #84ef8e;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px black;
+    background-color: #4d4d4d;
 }
 
 button {
@@ -48,4 +53,9 @@ button:hover {
     transition: .5s;
     color:#84ef8e;
     background: #393939;
+}
+
+footer button {
+    margin-top: 50px;
+    width: 100px;
 }
