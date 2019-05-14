@@ -20,7 +20,7 @@ test('Removes current-char class on previous (first character) currentChar span'
     assert.equal(dom.children[0].outerHTML, expected);
 });
 
-test('Adds current-char to next charcter', function(assert) {
+test('Adds current-char class to next character', function(assert) {
     //Arrange
     const passageText = 'passage';
     const expected = '<span class="current-char">a</span>';
