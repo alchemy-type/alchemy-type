@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+
+html {
+    background-color: #4d4d4d;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    margin: 50px;
+    background-color: #383838;
+    height: 500px;
+    width: 1000px;
+    border: 3px #84ef8e solid;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+#logo {
+    width: 400px;
+}
+
+section {
+    padding-top: 25px;
+    width: 400px;
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    font-family: 'Ubuntu Mono';
+    background: #4d4d4d;
+    box-shadow: 0px 0px 5px black;
+    border: 2px solid #84ef8e;
+    border-radius: 10px;
+    color: white;
+    transition: .5s;
+}
+
+button:hover {
+    border: 2px solid white;
+    box-shadow: 0px 0px 10px white;
+    transition: .5s;
+    color:#84ef8e;
+    background: #393939;
+}
