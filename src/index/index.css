@@ -2,14 +2,15 @@
 
 html {
     background-color: #000000ea;
+    height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 body {
-    margin: 50px;
     background-color: #282828c4;
-    height: 500px;
+    height: auto;
     width: 1000px;
     border: 3px #84ef8e solid;
     border-radius: 20px;
@@ -34,6 +35,7 @@ section {
     box-shadow: 0px 0px 10px black;
     background-color: #393939;
     transition: 1s;
+    animation: fade 1s;
 }
 
 section:hover {
@@ -51,6 +53,7 @@ button {
     border-radius: 10px;
     color: white;
     transition: .5s;
+    animation: fade 1s;
 }
 
 button:hover {
@@ -64,4 +67,22 @@ button:hover {
 footer button {
     width: 100px;
     border: 2px rgb(104, 104, 104) solid;
+}
+
+@keyframes fade {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        height: auto;
+    }
+    section {
+        width: auto;
+        height: auto;
+        display: flex;
+        margin: 5px;
+        flex-direction: column;
+    }
 }
