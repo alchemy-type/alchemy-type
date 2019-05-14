@@ -1,17 +1,20 @@
-import passages from '../services/passage-data.js';
 import createSpans from './create-spans.js';
 import handleMatchFlag from './handle-match-flag.js';
 import handleCurrentChar from './handle-current-char.js';
 import handleErrorChar from './handle-error-char.js';
 import checkEndGame from './checkEndGame.js';
+import passageApi from '../services/passage-api.js';
 
 let passageParent = document.getElementById('passage-characters');
 let userInput = document.getElementById('passage-input');
 
-const passage = passages[0];
+const searchParams = new URLSearchParams(window.location.search);
+const passageId = searchParams.get('id');
+
+const passage = passageApi.get(passageId);
+
 const passageText = passage.text;
 createSpans(passageText, passageParent);
-
 const passageArray = Array.from(passageText);
 const emptyArray = Array(passageText.length);
 
