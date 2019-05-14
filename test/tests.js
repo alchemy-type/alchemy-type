@@ -6,3 +6,4 @@ import './handle-current-char.test.js';
 import './handle-error-char.test.js';
 import './find-by-id.test.js';
 import './check-end-game.test.js';
+import './create-passages-list.test.js';
