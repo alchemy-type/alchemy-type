@@ -10,4 +10,5 @@ passageForm.addEventListener('submit', event => {
     formData.set('date', Date.now());
     const passage = makePassage(formData);
     passageApi.save(passage);
+    window.location = './passage-list.html';
 });
