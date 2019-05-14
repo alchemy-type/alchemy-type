@@ -5,11 +5,13 @@ QUnit.module('make passage');
 
 test('Test saving a passage and get it back', assert => {
     //Arrange
+    const date = Date.now();
     const passage = {
-        id: 'JavaScriptpassage',
+        id: 'passage' + date,
         language: 'JavaScript',
         title: 'passage',
-        text: 'This is a test passage.\nThis is a second line'
+        text: 'This is a test passage.\nThis is a second line',
+        date: date.toString()
     };
 
     const formData = new FormData();
@@ -17,6 +19,7 @@ test('Test saving a passage and get it back', assert => {
     formData.set('language', passage.language);
     formData.set('title', passage.title);
     formData.set('text', passage.text);
+    formData.set('date', date);
 
     //Act 
     const result = makePassage(formData);
