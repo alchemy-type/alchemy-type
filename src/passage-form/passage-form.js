@@ -9,5 +9,8 @@ passageForm.addEventListener('submit', event => {
     const formData = new FormData(passageForm);
     formData.set('date', Date.now());
     const passage = makePassage(formData);
+    console.log(passage.text);
+    const splitPassage = passage.text.split('\n');
+    console.log(splitPassage);
     passageApi.save(passage);
 });
