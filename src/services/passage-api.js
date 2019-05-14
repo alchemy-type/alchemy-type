@@ -1,3 +1,5 @@
+import findById from './find-by-id.js';
+
 const passageApi = {
     key: 'passage',
     save(passage) {
@@ -8,12 +10,7 @@ const passageApi = {
     },
     get(id) {
         const passages = passageApi.getAll();
-        for(let i = 0; i < passages.length; i++) {
-            let passage = passages[i];
-            if(passage.id === id) {
-                return passage;
-            }
-        }
+        return findById(passages, id);
     },
     getAll() {
         const passageData = localStorage.getItem(passageApi.key);
