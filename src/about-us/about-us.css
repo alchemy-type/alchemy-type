@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+
+html {
+    background-color: #000000ea;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    margin: 50px;
+    background-color: #282828c4;
+    height: 500px;
+    width: 1000px;
+    border: 3px #84ef8e solid;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    margin-top: 35px;
+}
+
+.container {
+    margin: 25px;
+    width: 225px;
+    height: 125px;
+    border: 2px solid #84ef8e;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px black;
+    background-color: #393939;
+    transition: 1s;
+    color: white;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: 
+    fade 1s;
+}
+
+@keyframes fade {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+.container:hover {
+    box-shadow: 0px 0px 10px white;
+    transition: 1s;
+}
+
+#logo {
+    width: 400px;
+}
+
+#icon {
+    width: 30px;
+    opacity: .5;
+}
+
+#icon:hover {
+    filter: drop-shadow( 0px 0px 5px #ffffff77);
+}
+
+.icons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+footer button {
+    width: 100px;
+    border: 2px rgb(104, 104, 104) solid;
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    font-family: 'Ubuntu Mono';
+    background: #4d4d4d;
+    box-shadow: 0px 0px 5px black;
+    border: 2px solid #84ef8e;
+    border-radius: 10px;
+    color: white;
+    transition: .5s;
+}
+
+button:hover {
+    border: 2px solid white;
+    box-shadow: 0px 0px 10px white;
+    transition: .5s;
+    color:#84ef8e;
+    background: #393939;
+}
+
+.name {
+    padding-right: 5px;
+    text-shadow: 0px 0px 5px black;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: 
+        cursor 1.5s step-end 1,
+        typing 1.5s steps(20);
+}
+
+@keyframes typing {
+    from { width: 0% }
+    to { width: 48% }
+}
+
+@keyframes cursor {
+    0% { border-right: 6px solid  #84ef8e;  }
+    20% { border-color: transparent; }
+    40% { border-right: 6px solid  #84ef8e;  }
+    60% { border-color: transparent; }
+    80% { border-right: 6px solid  #84ef8e; }
+    100% { border-color: transparent; }
+}
