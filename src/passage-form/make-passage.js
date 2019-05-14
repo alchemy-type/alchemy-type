@@ -1,10 +1,9 @@
 function makePassage(formData) {
     const passage = {
-        id: formData.get('title') + formData.get('date'),
+        id: formData.get('language') + formData.get('title'),
         language: formData.get('language'),
         title: formData.get('title'),
-        text: formData.get('text'),
-        date: formData.get('date')
+        text: formData.get('text')
     };
     return passage;
 }
