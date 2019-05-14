@@ -19,7 +19,7 @@ test('Test saving a passage and get it back', assert => {
     formData.set('language', passage.language);
     formData.set('title', passage.title);
     formData.set('text', passage.text);
-    formData.set('date', date);
+    formData.set('date', passage.date);
 
     //Act 
     const result = makePassage(formData);
