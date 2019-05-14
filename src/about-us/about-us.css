@@ -2,23 +2,28 @@
 
 html {
     background-color: #000000ea;
-    display: flex;
-    justify-content: center;
 }
 
 body {
-    margin: 50px;
-    background-color: #282828c4;
-    height: 500px;
-    width: 1000px;
-    border: 3px #84ef8e solid;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px black;
+    margin: 0;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     vertical-align: middle;
+    background-color: #282828c4;
+    height: auto;
+    width: 1000px;
+    border: 3px #84ef8e solid;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px black;
 }
 
 main {
@@ -27,7 +32,7 @@ main {
     margin-top: 35px;
 }
 
-.container {
+.box {
     margin: 25px;
     width: 225px;
     height: 125px;
@@ -37,34 +42,29 @@ main {
     background-color: #393939;
     transition: 1s;
     color: white;
-    justify-content: center;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     animation: 
     fade 1s;
 }
 
-@keyframes fade {
-    from { opacity: 0 }
-    to { opacity: 1 }
-}
-
-.container:hover {
+.box:hover {
     box-shadow: 0px 0px 10px white;
     transition: 1s;
 }
 
-#logo {
+#alchemy-type-logo {
     width: 400px;
 }
 
-#icon {
+#icons {
     width: 30px;
     opacity: .5;
 }
 
-#icon:hover {
+#icons:hover {
     filter: drop-shadow( 0px 0px 5px #ffffff77);
 }
 
@@ -124,4 +124,24 @@ button:hover {
     60% { border-color: transparent; }
     80% { border-right: 6px solid  #84ef8e; }
     100% { border-color: transparent; }
+}
+
+@keyframes fade {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+@media screen and (max-width: 1000px) {
+    #main-container {
+        width: auto;
+    }
+    main {
+      flex-direction: column;
+    }
+    .container {
+        margin: 5px;
+    }
+    body {
+        height: 150vh;
+    }
 }
