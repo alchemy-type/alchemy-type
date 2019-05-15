@@ -10,7 +10,7 @@ test('take passage and create link', assert => {
         title: 'Test Passage',
     };
 
-    const expected = '<a class="passage" href="practice.html?id=test"><section>Test Passage</section></a>';
+    const expected = '<a class="passage" href="practice.html?id=test"><section class="passage-card">Test Passage</section></a>';
 
     //act
 

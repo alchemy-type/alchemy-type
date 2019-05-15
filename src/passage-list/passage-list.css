@@ -1,4 +1,13 @@
-main {
+/* main {
     display: grid;
     grid-auto-flow: row;
+} */
+
+.container {
+    min-width: 50vw;
+}
+
+.passage-card {
+    padding: 10px;
+    border: 1px solid red;
 }
