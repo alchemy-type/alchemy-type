@@ -50,7 +50,7 @@ userInput.addEventListener('keydown', event => {
     } else if(event.code === 'Backspace') {
         emptyArray.pop();
         userInputLength = emptyArray.length;
-
+        currentChar.classList.remove('typed');
         currentChar = handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength);
     }
 
