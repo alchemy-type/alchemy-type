@@ -29,8 +29,10 @@ userInput.addEventListener('input', (event) => {
     emptyArray[userInputLength - 1] = event.target.value[userInputLength - 1];
     gameOver = checkEndGame(passageArray, emptyArray);
     if(!gameOver) {
-        currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
         matchFlag = handleMatchFlag(emptyArray, passageArray, userInputLength);
+        if(matchFlag) {
+            currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
+        }
         handleErrorChar(matchFlag, passageParent, currentChar, userInputLength);
     }
 });
