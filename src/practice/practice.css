@@ -1,3 +1,10 @@
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .current-char {
     background-color: rgba(0, 128, 0, 0.454);
 }
@@ -10,7 +17,12 @@
     background-color: red;
 }
 
-section {
+#passage-characters {
     text-align: left;
     white-space: pre;
+}
+
+#passage-input {
+    opacity: 0;
+    left: -100%;
 }
