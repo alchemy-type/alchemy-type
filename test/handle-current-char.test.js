@@ -23,7 +23,7 @@ test('Removes current-char class on previous (first character) currentChar span'
 test('Adds current-char class to next character', function(assert) {
     //Arrange
     const passageText = 'passage';
-    const expected = '<span class="current-char">a</span>';
+    const expected = '<span class="typed current-char">a</span>';
     const parent = document.createElement('section');
     parent.id = 'passage-characters';
     const dom = createSpans(passageText, parent);
