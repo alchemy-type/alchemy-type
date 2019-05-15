@@ -3,11 +3,37 @@
     grid-auto-flow: row;
 } */
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
+header {
+    text-align: center;
+}
+
+#passage-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+#logo {
+    width: 300px;
+}
+
 .container {
     min-width: 50vw;
+    padding: 20px;
+    max-width: 80vw;
+    margin: auto;
 }
 
 .passage-card {
+    height: 3em;
     padding: 10px;
-    border: 1px solid red;
+    border: 1px solid white;
+    border-radius: 15px;
 }
