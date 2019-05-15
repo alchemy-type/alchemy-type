@@ -1,5 +1,3 @@
-var textInput = document.getElementById('passage-input');
-
 var minutesLabel = document.getElementById('minutes');
 var secondsLabel = document.getElementById('seconds');
 var totalSeconds = 0;
