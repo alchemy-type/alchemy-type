@@ -23,6 +23,9 @@ let matchFlag = true;
 let gameOver = false;
 let enterFlag = false;
 
+// Disallow end, home and arrow keys
+const notAllowedKeys = [35, 36, 37, 38, 39, 40];
+
 let currentChar = handleCurrentChar(passageParent, passageParent.children[0], userInputLength);
 
 userInput.addEventListener('input', (event) => {
@@ -48,7 +51,7 @@ userInput.addEventListener('keydown', event => {
     if(event.code === 'Enter') {
         enterFlag = true;
     }
-    if((!matchFlag && event.code !== 'Backspace') || gameOver) {
+    if((!matchFlag && event.code !== 'Backspace') || gameOver || notAllowedKeys.includes(event.which)) {
         event.preventDefault();
     }
 });
