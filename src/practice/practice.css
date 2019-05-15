@@ -6,11 +6,15 @@ main {
 }
 
 .current-char {
-    background-color: rgba(0, 128, 0, 0.454);
+    background-color: #84ef8f7e;
 }
 
-.current-char.return::before, .error-char.return::before {
+.return::before {
+    color: transparent;
     content: "↵";
+}
+.current-char.return::before, .error-char.return::before {
+    color: white;
 }
 
 .error-char {
