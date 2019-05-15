@@ -3,6 +3,7 @@ function createSpans(passageText, parent) {
         const span = document.createElement('span');
         if(passageText.charAt(i) === '\n') {
             const br = document.createElement('br');
+            span.classList.add('return');
             span.appendChild(br);
         } else {
             span.textContent = passageText.charAt(i);

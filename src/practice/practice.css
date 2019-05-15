@@ -1,5 +1,9 @@
 .current-char {
-    background-color: yellow;
+    background-color: rgba(0, 128, 0, 0.454);
+}
+
+.current-char.return::before, .error-char.return::before {
+    content: "↵";
 }
 
 .error-char {
