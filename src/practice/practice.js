@@ -39,7 +39,6 @@ userInput.addEventListener('input', (event) => {
         emptyArray = handleEnter(userInputLength, passageArray, emptyArray, userInput);
         userInputLength = emptyArray.length;
         currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
-        enterFlag = false;
     }
 
     enterFlag = false;
