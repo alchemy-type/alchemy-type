@@ -10,7 +10,7 @@ test('create spans from single line passagetext', function(assert) {
     const parent = document.createElement('section');
     parent.id = 'passage-characters';
     //Act
-    const result = createSpans(passageText, parent);
+    const result = createSpans(passageText, parent); 
     //Assert
 
     assert.equal(result.outerHTML, expected);

@@ -9,15 +9,33 @@ passageApi.key = key;
 test('Test saving a passage and get it back', assert => {
     localStorage.removeItem(key);
     //Arrange
-    const passage = {
-        id: 'JavaScriptpassage',
+    let date = Date.now();
+    const passage1 = {
+        id: 'passage1' + date,
         language: 'JavaScript',
         title: 'Passage Title',
-        text: 'This is a test passage.\nThis is a second line'
+        text: 'This is a test passage.\nThis is a second line',
+        date: date
+    };
+    const passage2 = {
+        id: 'passage2' + date,
+        language: 'JavaScript',
+        title: 'Passage Title',
+        text: 'This is a test passage.\nThis is a second line',
+        date: date
+    };
+    const passage3 = {
+        id: 'passage3' + date,
+        language: 'JavaScript',
+        title: 'Passage Title',
+        text: 'This is a test passage.\nThis is a second line',
+        date: date
     };
     //Act 
-    passageApi.save(passage);
-    const result = passageApi.get(passage.id);
+    passageApi.save(passage1);
+    passageApi.save(passage2);
+    passageApi.save(passage3);
+    const result = passageApi.get(passage2.id);
     //Assert
-    assert.deepEqual(result, passage);
+    assert.deepEqual(result, passage2);
 });
