@@ -16,42 +16,45 @@ const passage = passageApi.get(passageId);
 const passageText = passage.text;
 createSpans(passageText, passageParent);
 const passageArray = Array.from(passageText);
-let emptyArray = Array(passageText.length);
+let emptyArray = [];
 
 let userInputLength = 0;
 let matchFlag = true;
 let gameOver = false;
 let enterFlag = false;
 
-// Disallow end, home and arrow keys
-const notAllowedKeys = [35, 36, 37, 38, 39, 40];
-
 let currentChar = handleCurrentChar(passageParent, passageParent.children[0], userInputLength);
 
 userInput.addEventListener('input', (event) => {
-    userInputLength = event.target.value.length;
-    emptyArray[userInputLength - 1] = event.target.value[userInputLength - 1];
+    emptyArray.push(event.target.value);
+    userInputLength = emptyArray.length;
+    userInput.value = '';
     gameOver = checkEndGame(passageArray, emptyArray);
+
     if(!gameOver) {
-        matchFlag = handleMatchFlag(emptyArray, passageArray, userInputLength);
-        if(matchFlag) {
-            currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
-        }
-        handleErrorChar(matchFlag, passageParent, currentChar, userInputLength);
+        currentChar = handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength);
     }
-    if(enterFlag) {
+
+    if(enterFlag && matchFlag) {
         emptyArray = handleEnter(userInputLength, passageArray, emptyArray, userInput);
-        userInputLength = event.target.value.length;
+        userInputLength = emptyArray.length;
         currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
-        enterFlag = false;
     }
+
+    enterFlag = false;
 });
 
 userInput.addEventListener('keydown', event => {
     if(event.code === 'Enter') {
         enterFlag = true;
+    } else if(event.code === 'Backspace') {
+        emptyArray.pop();
+        userInputLength = emptyArray.length;
+
+        currentChar = handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength);
     }
-    if((!matchFlag && event.code !== 'Backspace') || gameOver || notAllowedKeys.includes(event.which)) {
+
+    if((!matchFlag && event.code !== 'Backspace') || gameOver) {
         event.preventDefault();
     }
 });
@@ -60,17 +63,24 @@ userInput.addEventListener('blur', () => {
     userInput.focus();
 });
 
-function handleEnter(userInputLength, passageArray, emptyArray, userInput) {
+function handleEnter(userInputLength, passageArray, emptyArray) {
     while(passageArray[userInputLength] === ' ' || passageArray[userInputLength] === '\n') {
         if(passageArray[userInputLength] === ' ') {
-            emptyArray[userInputLength] = ' ';
-            userInput.value = userInput.value + ' ';
+            emptyArray.push(' ');
         } else {
-            emptyArray[userInputLength] = '\n';
-            userInput.value = userInput.value + '\n';
+            emptyArray.push('\n');
         }
         userInputLength++;
     }
 
     return emptyArray;
+}
+
+function handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength) {
+    matchFlag = handleMatchFlag(emptyArray, passageArray, userInputLength);
+    if(matchFlag) {
+        currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
+    }
+    handleErrorChar(matchFlag, passageParent, currentChar, userInputLength);
+    return currentChar;
 }
