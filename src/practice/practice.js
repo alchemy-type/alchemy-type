@@ -16,11 +16,15 @@ const passage = passageApi.get(passageId);
 const passageText = passage.text;
 createSpans(passageText, passageParent);
 const passageArray = Array.from(passageText);
-const emptyArray = Array(passageText.length);
+let emptyArray = Array(passageText.length);
 
 let userInputLength = 0;
 let matchFlag = true;
 let gameOver = false;
+let enterFlag = false;
+
+// Disallow end, home and arrow keys
+const notAllowedKeys = [35, 36, 37, 38, 39, 40];
 
 let currentChar = handleCurrentChar(passageParent, passageParent.children[0], userInputLength);
 
@@ -35,10 +39,19 @@ userInput.addEventListener('input', (event) => {
         }
         handleErrorChar(matchFlag, passageParent, currentChar, userInputLength);
     }
+    if(enterFlag) {
+        emptyArray = handleEnter(userInputLength, passageArray, emptyArray, userInput);
+        userInputLength = event.target.value.length;
+        currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
+        enterFlag = false;
+    }
 });
 
 userInput.addEventListener('keydown', event => {
-    if((!matchFlag && event.code !== 'Backspace') || gameOver) {
+    if(event.code === 'Enter') {
+        enterFlag = true;
+    }
+    if((!matchFlag && event.code !== 'Backspace') || gameOver || notAllowedKeys.includes(event.which)) {
         event.preventDefault();
     }
 });
@@ -46,3 +59,18 @@ userInput.addEventListener('keydown', event => {
 userInput.addEventListener('blur', () => {
     userInput.focus();
 });
+
+function handleEnter(userInputLength, passageArray, emptyArray, userInput) {
+    while(passageArray[userInputLength] === ' ' || passageArray[userInputLength] === '\n') {
+        if(passageArray[userInputLength] === ' ') {
+            emptyArray[userInputLength] = ' ';
+            userInput.value = userInput.value + ' ';
+        } else {
+            emptyArray[userInputLength] = '\n';
+            userInput.value = userInput.value + '\n';
+        }
+        userInputLength++;
+    }
+
+    return emptyArray;
+}
