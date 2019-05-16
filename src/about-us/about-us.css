@@ -46,7 +46,8 @@ main {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    animation: fade 1s;
+    animation: 
+    fade 1s;
 }
 
 .box:hover {
