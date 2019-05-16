@@ -1,3 +1,4 @@
+import calcStats from '../src/practice/calc-stats.js';
 const test = QUnit.test;
 
 QUnit.module('make object from stats');
@@ -18,12 +19,3 @@ test('store stats in an object to be saved to api', assert => {
     //assert
     assert.deepEqual(expected, user);
 });
-
-function calcStats(wpm, errorChars) {
-    const stats = {
-        'wpm': wpm,
-        'errorChars': errorChars
-    };
-
-    return stats;
-}
