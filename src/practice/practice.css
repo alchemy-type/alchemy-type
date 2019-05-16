@@ -1,3 +1,7 @@
+html, body {
+    scroll-behavior: smooth;
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -49,7 +53,7 @@ body {
 
 #passage-input {
     opacity: 0;
-    position: absolute;
+    position: fixed;
     left: -100%;
-    bottom: 0;
+    top: 50%;
 }
