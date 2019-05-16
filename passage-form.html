@@ -11,32 +11,30 @@
 </head>
 
 <body>
+
     <header>
+        <img src="./assets/alchemy-type.png" id="logo">
         <h1>Passage Form</h1>
     </header>
-
-    <section>
+    <section class="container">
         <form id="passage-form">
-            <label>Title:
-                <input id="title" name="title" required>
-            </label>
-            <label>Description:
-                <input id="description" name="description" maxlength="240">
-            </label>
-            <label>Text:
-                <textarea id="text" name="text" required></textarea>
-            </label>
-            <label> Language:
-                <select name="language" required>
-                    <option value="" hidden disabled selected>Language</option>
-                    <option value="JavaScript">JavaScript</option>
-                    <option value="HTML">HTML</option>
-                    <option value="CSS">CSS</option>
-                </select>
-            </label>
+            <label>Title:</label>
+            <input id="title" name="title" required>
+            <label>Description:</label>
+            <input id="description" name="description" maxlength="240">
+            <label>Text:</label>
+            <textarea id="text" name="text" placeholder="Type or insert your passage here." required></textarea>
+            <label for="language">Language:</label>
+            <select name="language" required>
+                <option value="" hidden disabled selected>Language</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+            </select>
             <button>Submit</button>
         </form>
     </section>
     <script type="module" src="./src/passage-form/passage-form.js"></script>
 </body>
+
 </html>
