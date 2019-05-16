@@ -11,7 +11,7 @@ test('take passage and create link', assert => {
         description: 'Test a Passage Input'
     };
 
-    const expected = '<a class="passage-card passage" href="practice.html?id=test"><p class="title">Test Passage</p><p class="description">Test a Passage Input</p></a>';
+    const expected = '<a class="passage-card" href="practice.html?id=test"><p class="title">Test Passage</p><p class="description">Test a Passage Input</p></a>';
 
     //act
 

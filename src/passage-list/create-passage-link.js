@@ -10,7 +10,6 @@ function createPassageLink(passage) {
     description.textContent = passage.description;
     
     link.classList.add('passage-card');
-    link.classList.add('passage');
     title.classList.add('title');
     description.classList.add('description');
     link.href = 'practice.html?' + searchParams.toString();
