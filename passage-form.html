@@ -18,16 +18,16 @@
     <section>
         <form id="passage-form">
             <label>Title:
-                <input id="title" name="title">
+                <input id="title" name="title" required>
             </label>
             <label>Description:
                 <input id="description" name="description" maxlength="240">
             </label>
             <label>Text:
-                <textarea id="text" name="text"></textarea>
+                <textarea id="text" name="text" required></textarea>
             </label>
             <label> Language:
-                <select name="language">
+                <select name="language" required>
                     <option value="" hidden disabled selected>Language</option>
                     <option value="JavaScript">JavaScript</option>
                     <option value="HTML">HTML</option>
@@ -39,5 +39,4 @@
     </section>
     <script type="module" src="./src/passage-form/passage-form.js"></script>
 </body>
-
 </html>
