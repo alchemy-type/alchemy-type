@@ -8,3 +8,6 @@ import './find-by-id.test.js';
 import './check-end-game.test.js';
 import './create-passages-list.test.js';
 import './handle-enter.test.js';
+import './calc-wpm.test.js';
+import './calc-stats.test.js';
+import './stats-api.test.js';

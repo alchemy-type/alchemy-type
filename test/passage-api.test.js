@@ -12,6 +12,7 @@ test('Test saving a passage and get it back', assert => {
     let date = Date.now();
     const passage1 = {
         id: 'passage1' + date,
+        description: 'Test passage 1',
         language: 'JavaScript',
         title: 'Passage Title',
         text: 'This is a test passage.\nThis is a second line',
@@ -19,6 +20,7 @@ test('Test saving a passage and get it back', assert => {
     };
     const passage2 = {
         id: 'passage2' + date,
+        description: 'Test passage 2',
         language: 'JavaScript',
         title: 'Passage Title',
         text: 'This is a test passage.\nThis is a second line',
@@ -26,6 +28,7 @@ test('Test saving a passage and get it back', assert => {
     };
     const passage3 = {
         id: 'passage3' + date,
+        description: 'Test passage 3',
         language: 'JavaScript',
         title: 'Passage Title',
         text: 'This is a test passage.\nThis is a second line',

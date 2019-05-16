@@ -33,6 +33,12 @@ for(let i = 100; i > 0; i--) {
 }`
 };
 
-const templatePassages = [functions, loops];
+const test = {
+    id: 'test',
+    title: 'test',
+    text: 'tests tests tests'
+};
+
+const templatePassages = [functions, loops, test];
 
 export default templatePassages;

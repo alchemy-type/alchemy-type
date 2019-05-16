@@ -1,0 +1,52 @@
+body {
+    text-align: center;
+}
+
+textarea, select, button, input {
+    background-color: #282828c4;
+    border: 3px #84ef8e solid;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px black;
+    color: white;
+    font-size: 1.1em;
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 25em;
+    margin: auto;
+    padding: 20px;
+}
+
+label {
+    padding: .5em;
+    font-size: 1.2em;
+}
+
+input {
+    height: 2em;
+    padding: 5px;
+}
+
+
+textarea {
+    height: 20em;
+}
+
+button {
+    margin: 2em auto;
+    width: 10em;
+    height: 3em;
+}
+
+#logo {
+    width: 300px;
+}
+
+.container {
+    max-width: 75vw;
+    margin: auto;
+    margin-bottom: 2em;
+}
