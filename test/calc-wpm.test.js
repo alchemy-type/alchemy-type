@@ -1,4 +1,4 @@
-import calcWPM from '../src/practice/calcWPM.js';
+import calcWPM from '../src/practice/calc-WPM.js';
 const test = QUnit.test;
 
 QUnit.module('calculate WPM');
