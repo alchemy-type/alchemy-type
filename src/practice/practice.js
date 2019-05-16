@@ -2,14 +2,20 @@ import createSpans from './create-spans.js';
 import handleCurrentChar from './handle-current-char.js';
 import checkEndGame from './checkEndGame.js';
 import passageApi from '../services/passage-api.js';
-import { stopWatch, reset } from '../services/stop-watch.js';
+import { stopWatch, reset, totalSeconds } from '../services/stop-watch.js';
 import handleEnter from './handle-enter.js';
-import handleCursor from './handle-cursor.js';
+import { handleCursor, errorChars } from './handle-cursor.js';
+import calcWPM from './calc-WPM.js';
+// import calcStats from './calc-stats.js';
 
 let passageParent = document.getElementById('passage-characters');
 let userInput = document.getElementById('passage-input');
 let minutesLabel = document.getElementById('minutes');
 let secondsLabel = document.getElementById('seconds');
+let statsDisplay = document.getElementById('stats-container');
+let wpmDisplay = document.getElementById('wpm');
+let errorCountDisplay = document.getElementById('error-count');
+let errorsDisplay = document.getElementById('errors');
 
 const searchParams = new URLSearchParams(window.location.search);
 const passageId = searchParams.get('id');
@@ -34,20 +40,25 @@ userInput.addEventListener('input', (event) => {
     emptyArray.push(event.target.value);
     userInputLength = emptyArray.length;
     userInput.value = '';
-
+    
     // Start timer on first character
     if(userInputLength === 1) {
         timer = setInterval(stopWatch, 1000);
     }
-
+    
     gameOver = checkEndGame(passageArray, emptyArray);
-
+    
     if(!gameOver) {
         let cursorObj = handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength, matchFlag);
         currentChar = cursorObj.currentChar;
         matchFlag = cursorObj.matchFlag;
     } else {
-        // Stop timer on gameOver
+        // Stop timer and display stats on gameOver
+        const wpm = calcWPM(emptyArray, totalSeconds);
+        wpmDisplay.textContent = wpm;
+        errorCountDisplay.textContent = errorChars.length;
+        errorsDisplay.textContent = errorChars;
+        statsDisplay.classList.remove('hidden');
         clearInterval(timer);
     }
 
