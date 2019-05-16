@@ -75,3 +75,13 @@ button:hover {
     from { opacity: 0 }
     to { opacity: 1 }
 }
+
+@media screen and (max-width: 1000px) {
+    #stats-container {
+        flex-direction: column;
+    }
+    .stat {
+        width: 22vw;
+        margin: 10px;
+    }
+}
