@@ -2,10 +2,14 @@ import handleMatchFlag from './handle-match-flag.js';
 import handleCurrentChar from './handle-current-char.js';
 import handleErrorChar from './handle-error-char.js';
 
+let errorChars = [];
+
 function handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength, matchFlag) {
     matchFlag = handleMatchFlag(emptyArray, passageArray, userInputLength);
     if(matchFlag) {
         currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
+    } else {
+        errorChars.push(emptyArray[emptyArray.length - 1]);
     }
     handleErrorChar(matchFlag, passageParent, currentChar, userInputLength);
 
@@ -17,4 +21,4 @@ function handleCursor(emptyArray, passageArray, passageParent, currentChar, user
     return cursorObj;
 }
 
-export default handleCursor;
+export { handleCursor, errorChars };
