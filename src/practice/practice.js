@@ -5,6 +5,7 @@ import passageApi from '../services/passage-api.js';
 import { stopWatch, reset, totalSeconds } from '../services/stop-watch.js';
 import handleEnter from './handle-enter.js';
 import { handleCursor, errorChars } from './handle-cursor.js';
+import calcWPM from './calcWPM.js';
 
 let passageParent = document.getElementById('passage-characters');
 let userInput = document.getElementById('passage-input');
@@ -49,6 +50,7 @@ userInput.addEventListener('input', (event) => {
     } else {
         // Stop timer on gameOver
         const wpm = calcWPM(emptyArray, totalSeconds);
+        console.log(wpm, errorChars);
         clearInterval(timer);
     }
 
