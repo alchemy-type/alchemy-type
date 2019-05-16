@@ -6,7 +6,8 @@ import { stopWatch, reset, totalSeconds } from '../services/stop-watch.js';
 import handleEnter from './handle-enter.js';
 import { handleCursor, errorChars } from './handle-cursor.js';
 import calcWPM from './calc-WPM.js';
-// import calcStats from './calc-stats.js';
+import calcStats from './calc-stats.js';
+import statsApi from '../services/stats-api.js';
 
 let passageParent = document.getElementById('passage-characters');
 let userInput = document.getElementById('passage-input');
@@ -57,6 +58,8 @@ userInput.addEventListener('input', (event) => {
     } else {
         // Stop timer and display stats on gameOver
         const wpm = calcWPM(emptyArray, totalSeconds);
+        const stats = calcStats(wpm, errorChars);
+        statsApi.save(stats);
         wpmDisplay.textContent = wpm;
         errorCountDisplay.textContent = errorChars.length;
         errorsDisplay.textContent = errorChars;
