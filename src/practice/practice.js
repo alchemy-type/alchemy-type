@@ -2,9 +2,9 @@ import createSpans from './create-spans.js';
 import handleCurrentChar from './handle-current-char.js';
 import checkEndGame from './checkEndGame.js';
 import passageApi from '../services/passage-api.js';
-import { stopWatch, reset } from '../services/stop-watch.js';
+import { stopWatch, reset, totalSeconds } from '../services/stop-watch.js';
 import handleEnter from './handle-enter.js';
-import handleCursor from './handle-cursor.js';
+import { handleCursor, errorChars } from './handle-cursor.js';
 
 let passageParent = document.getElementById('passage-characters');
 let userInput = document.getElementById('passage-input');
@@ -48,6 +48,13 @@ userInput.addEventListener('input', (event) => {
         matchFlag = cursorObj.matchFlag;
     } else {
         // Stop timer on gameOver
+        const words = emptyArray.length / 5.1;
+        console.log('words', words);
+        const time = totalSeconds / 60;
+        console.log('min', time);
+        const wpm = words / time;
+        console.log('wpm', wpm);
+        console.log('errors', errorChars);
         clearInterval(timer);
     }
 
@@ -93,3 +100,12 @@ userInput.addEventListener('keydown', event => {
 userInput.addEventListener('blur', () => {
     userInput.focus();
 });
+
+function makeUser(wpm,) {
+    const user = {
+        avgWPM: [],
+        avgErrorCount: 1
+    };
+
+    return user;
+}
