@@ -21,4 +21,4 @@ function time(time) {
     }
 }
 
-export { stopWatch, reset };
+export { stopWatch, reset, totalSeconds };
