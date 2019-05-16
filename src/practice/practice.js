@@ -58,17 +58,14 @@ userInput.addEventListener('input', (event) => {
         currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
 
         let viewportOffset = passageParent.children[userInputLength].getBoundingClientRect();
-        // console.log(viewportOffset);
-        // console.log(viewportOffset.bottom);
         var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        // console.log('browser height: ', h);
+
         if(viewportOffset.bottom + viewportOffset.height + 100 > h) {
-            console.log('scrolling');
-            console.log(passageParent.children[userInputLength]);
-            passageParent.children[userInputLength].scrollIntoView({ block: 'center' });
+            setTimeout(() => {
+                currentChar.scrollIntoView({ block: 'center' });
+            });
         }
     }
-
     enterFlag = false;
 });
 
