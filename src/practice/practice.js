@@ -48,13 +48,7 @@ userInput.addEventListener('input', (event) => {
         matchFlag = cursorObj.matchFlag;
     } else {
         // Stop timer on gameOver
-        const words = emptyArray.length / 5.1;
-        console.log('words', words);
-        const time = totalSeconds / 60;
-        console.log('min', time);
-        const wpm = words / time;
-        console.log('wpm', wpm);
-        console.log('errors', errorChars);
+        const wpm = calcWPM(emptyArray, totalSeconds);
         clearInterval(timer);
     }
 
@@ -100,12 +94,3 @@ userInput.addEventListener('keydown', event => {
 userInput.addEventListener('blur', () => {
     userInput.focus();
 });
-
-function makeUser(wpm,) {
-    const user = {
-        avgWPM: [],
-        avgErrorCount: 1
-    };
-
-    return user;
-}
