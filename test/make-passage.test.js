@@ -8,6 +8,7 @@ test('Test saving a passage and get it back', assert => {
     const date = Date.now();
     const passage = {
         id: 'passage' + date,
+        description: 'A test passage',
         language: 'JavaScript',
         title: 'passage',
         text: 'This is a test passage.\nThis is a second line',
@@ -16,6 +17,7 @@ test('Test saving a passage and get it back', assert => {
 
     const formData = new FormData();
     formData.set('id', passage.id);
+    formData.set('description', passage.description);
     formData.set('language', passage.language);
     formData.set('title', passage.title);
     formData.set('text', passage.text);

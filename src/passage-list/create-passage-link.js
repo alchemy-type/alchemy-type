@@ -1,13 +1,21 @@
 function createPassageLink(passage) {
-    const section = document.createElement('section');
-    section.classList.add('passage-card');
-    const link = document.createElement('a');
-    link.classList.add('passage');
+    const title = document.createElement('p');
+    const description = document.createElement('p');
     const searchParams = new URLSearchParams();
+    const link = document.createElement('a');
+
     searchParams.set('id', passage.id);
+
+    title.textContent = passage.title;
+    description.textContent = passage.description;
+    
+    link.classList.add('passage-card');
+    title.classList.add('title');
+    description.classList.add('description');
     link.href = 'practice.html?' + searchParams.toString();
-    section.textContent = passage.title;
-    link.appendChild(section);
+    link.appendChild(title);
+    link.appendChild(description);
+
     return link;
 }
 
