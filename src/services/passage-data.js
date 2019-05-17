@@ -3,7 +3,7 @@ const functions = {
     title: 'Javascript Functions',
     description: 'Practice typing Javascript functions!',
     text: `function anotherNiceFunction() {
-    return 'I'm another function!'
+    return 'I'm another function!';
 }
 anotherNiceFunction();
 function mathyFunction() {
@@ -15,7 +15,7 @@ function anotherMathyFunction() {
 }
 anotherMathyFunction();
 function functionWithOneParameter(parameter) {
-    return parameter
+    return parameter;
 }`
 };
 
