@@ -1,5 +1,7 @@
 body {
     text-align: center;
+    width: 75vw;
+    margin: 5em auto;
 }
 
 textarea, select, button, input {
@@ -15,8 +17,8 @@ textarea, select, button, input {
 form {
     display: flex;
     flex-direction: column;
-    width: 25em;
     margin: auto;
+    width: 25em;
     padding: 20px;
 }
 
@@ -33,20 +35,14 @@ input {
 
 textarea {
     height: 20em;
-}
+}   
 
 button {
-    margin: 2em auto;
+    margin: 1em auto;
     width: 10em;
     height: 3em;
 }
 
 #logo {
     width: 300px;
-}
-
-.container {
-    max-width: 75vw;
-    margin: auto;
-    margin-bottom: 2em;
 }

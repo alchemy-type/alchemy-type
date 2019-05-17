@@ -76,11 +76,6 @@ main {
     margin-bottom: 10px;
 }
 
-footer button {
-    width: 100px;
-    border: 2px rgb(104, 104, 104) solid;
-}
-
 button {
     padding: 10px;
     margin: 10px;
