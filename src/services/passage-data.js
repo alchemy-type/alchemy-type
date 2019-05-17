@@ -5,15 +5,15 @@ const functions = {
     text: `function anotherNiceFunction() {
     return 'I'm another function!'
 }
-anotherNiceFunction
+anotherNiceFunction();
 function mathyFunction() {
     return 3 * 4;
 }
-mathyFunction
+mathyFunction();
 function anotherMathyFunction() {
     return (3 * 3) - 6;
 }
-anotherMathyFunction
+anotherMathyFunction();
 function functionWithOneParameter(parameter) {
     return parameter
 }`
