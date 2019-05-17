@@ -1,8 +1,16 @@
-/* main {
-    display: grid;
-    grid-auto-flow: row;
-} */
+html {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+body {
+    width: 75vw;
+    margin: 0;
+    height: auto;
+    text-align: center;
+}
 a {
     text-decoration: none;
     color: white;
@@ -20,6 +28,11 @@ header {
     grid-row-gap: 15px;
 }
 
+.passage-card:hover {
+    box-shadow: 0px 0px 10px white;
+    transition: 1s;
+}
+
 #logo {
     width: 300px;
 }
@@ -32,11 +45,31 @@ header {
 }
 
 .passage-card {
-    border: 1px solid white;
+    border: 1px solid #84ef8e;
     border-radius: 15px;
+    transition: 1s;
 }
 
 .description {
     color: gray;
 }
 
+button {
+    padding: 10px;
+    margin: 20px;
+    font-family: 'Ubuntu Mono';
+    background: #4d4d4d;
+    box-shadow: 0px 0px 5px black;
+    border: 2px solid #84ef8e;
+    border-radius: 10px;
+    color: white;
+    transition: .5s;
+}
+
+button:hover {
+    border: 2px solid white;
+    box-shadow: 0px 0px 10px white;
+    transition: .5s;
+    color:#84ef8e;
+    background: #393939;
+}

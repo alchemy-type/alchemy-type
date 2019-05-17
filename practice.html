@@ -10,11 +10,13 @@
     <title>Alchemy Type - Practice</title>
 </head>
 
-<body>
+<body class="container">
     <header>
-        <img src="./assets/alchemy-type.png" id="logo">
+        <a href="./index.html"><img src="./assets/alchemy-type.png" id="logo"></a>
         <h1 id="title"></h1>
-        <label id="minutes">00</label>:<label id="seconds">00</label>
+        <p id="timer">
+            <label id="minutes">00</label>:<label id="seconds">00</label>
+        </p>
     </header>
 
     <main class="container">
@@ -34,10 +36,13 @@
                 <p id="error-count"></p>
             </section>
         </section>
-
         <section class="stat">
             <label>Errors:</label>
             <p id="errors"></p>
+        </section>
+        <section id="buttons">
+            <a href="./index.html"><button>Back Home</button></a>
+            <a href="./passage-list.html"><button>Passages</button></a>
         </section>
     </section>
 

@@ -17,17 +17,25 @@ body {
     justify-content: center;
     vertical-align: middle;
     text-align: center;
+    width: 75vw;
+    margin: 50px auto;
 }
 
 #logo {
     width: 300px;
 }
 
+section.hidden {
+    opacity: 0;
+    height: 0;
+    transition: 2s;
+}
+
 #stats-container {
     display: flex;
     flex-direction: column;
-    transition: 2s;
     margin: 10px;
+    transition: 3s;
 }
 
 #small-stats {
@@ -83,7 +91,36 @@ body {
     top: 50%;
 }
 
-.hidden {
-    opacity: 0;
+header {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    font-family: 'Ubuntu Mono';
+    background: #4d4d4d;
+    box-shadow: 0px 0px 5px black;
+    border: 2px solid #84ef8e;
+    border-radius: 10px;
+    color: white;
     transition: .5s;
+}
+
+button:hover {
+    border: 2px solid white;
+    box-shadow: 0px 0px 10px white;
+    transition: .5s;
+    color:#84ef8e;
+    background: #393939;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#timer {
+    font-size: 2em;
 }
