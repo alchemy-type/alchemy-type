@@ -84,6 +84,7 @@ section.hidden {
     margin: 30px;
     font-size: 1.5em;
     color: gray;
+    width: 50vw;
 }
 
 .typed {
@@ -129,4 +130,11 @@ button:hover {
 
 #timer {
     font-size: 2em;
+}
+
+@media screen and (max-width: 750px) {
+    #passage-characters {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
