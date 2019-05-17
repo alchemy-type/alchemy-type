@@ -34,6 +34,8 @@ section.hidden {
 #stats-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 10px;
     transition: 3s;
 }
@@ -41,6 +43,10 @@ section.hidden {
 #small-stats {
     display: flex;
     flex-direction: row;
+}
+
+#errors {
+    padding: 0 10px;
 }
 
 .stat {
