@@ -7,6 +7,6 @@ const completedPassages = document.getElementById('passages');
 statsApi.init();
 const stats = statsApi.get();
 
-averageWPM.textContent = stats.avgWPM;
-averageNumOfErrors.textContent = stats.avgErrors;
+averageWPM.textContent = stats.avgWPM.toFixed(2);
+averageNumOfErrors.textContent = stats.avgErrors.toFixed(2);
 completedPassages.textContent = stats.passages;
