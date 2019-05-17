@@ -1,13 +1,26 @@
+html {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 body {
     text-align: center;
     display: flex;
     align-items: center;
     flex-direction: column;
-    animation: fade 1s;
+    width: 75vw;
+    margin: 0;
+    height: auto;
+}
+
+h1 {
+    text-shadow: 0px 0px 15px black;
 }
 
 #logo {
-    width: 300px;
+    width: 400px;
 }
 
 #stats-container {
@@ -15,13 +28,14 @@ body {
     display: row;
     justify-content: center;
     align-items: center;
-    width: 1000px;
+    width: 75vw;
+    animation: fade 1s;
 }
 
 .stat {
     padding-top: 10px;
     min-width: 15vw;
-    margin: 20px;
+    margin: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,4 +74,14 @@ button:hover {
 @keyframes fade {
     from { opacity: 0 }
     to { opacity: 1 }
+}
+
+@media screen and (max-width: 1000px) {
+    #stats-container {
+        flex-direction: column;
+    }
+    .stat {
+        width: 22vw;
+        margin: 10px;
+    }
 }
