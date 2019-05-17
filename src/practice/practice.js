@@ -1,10 +1,10 @@
 import createSpans from './create-spans.js';
 import handleCurrentChar from './handle-current-char.js';
-import checkEndGame from './checkEndGame.js';
+import checkEndGame from './check-end-game.js';
 import passageApi from '../services/passage-api.js';
 import { stopWatch, reset, totalSeconds } from '../services/stop-watch.js';
 import handleEnter from './handle-enter.js';
-import { handleCursor, errorChars } from './handle-cursor.js';
+import handleCursor from './handle-cursor.js';
 import calcWPM from './calc-WPM.js';
 import calcStats from './calc-stats.js';
 import statsApi from '../services/stats-api.js';
@@ -31,6 +31,7 @@ createSpans(passage.text, passageParent);
 
 const passageArray = Array.from(passage.text);
 let emptyArray = [];
+let errorChars = [];
 
 let userInputLength = 0;
 let matchFlag = true;
@@ -54,7 +55,7 @@ userInput.addEventListener('input', (event) => {
     gameOver = checkEndGame(passageArray, emptyArray);
 
     if(!gameOver) {
-        let cursorObj = handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength, matchFlag);
+        let cursorObj = handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength, matchFlag, errorChars);
         currentChar = cursorObj.currentChar;
         matchFlag = cursorObj.matchFlag;
     } else {
@@ -71,7 +72,7 @@ userInput.addEventListener('input', (event) => {
 
     // If user enters handle extra white space and returns
     if(enterFlag && matchFlag) {
-        emptyArray = handleEnter(userInputLength, passageArray, emptyArray, userInput);
+        emptyArray = handleEnter(userInputLength, passageArray, emptyArray);
         userInputLength = emptyArray.length;
         currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
 
@@ -98,13 +99,14 @@ userInput.addEventListener('keydown', event => {
         if(userInputLength === 0) {
             reset();
             clearInterval(timer);
+            errorChars = [];
             minutesLabel.textContent = '00';
             secondsLabel.textContent = '00';
         }
 
         // Handle cursor/text coloring
         currentChar.classList.remove('typed');
-        let cursorObj = handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength, matchFlag);
+        let cursorObj = handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength, matchFlag, errorChars);
         currentChar = cursorObj.currentChar;
         matchFlag = cursorObj.matchFlag;
     }
