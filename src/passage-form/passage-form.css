@@ -30,12 +30,18 @@ label {
 input {
     height: 2em;
     padding: 5px;
+    outline: none;
 }
 
 
 textarea {
     height: 20em;
+    outline: none;
 }   
+
+select {
+    outline: none;
+}
 
 button {
     margin: 1em auto;
