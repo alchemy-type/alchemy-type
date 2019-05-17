@@ -71,7 +71,7 @@ userInput.addEventListener('input', (event) => {
 
     // If user enters handle extra white space and returns
     if(enterFlag && matchFlag) {
-        emptyArray = handleEnter(userInputLength, passageArray, emptyArray, userInput);
+        emptyArray = handleEnter(userInputLength, passageArray, emptyArray);
         userInputLength = emptyArray.length;
         currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
 
