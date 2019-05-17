@@ -1,6 +1,6 @@
 import createSpans from './create-spans.js';
 import handleCurrentChar from './handle-current-char.js';
-import checkEndGame from './checkEndGame.js';
+import checkEndGame from './check-end-game.js';
 import passageApi from '../services/passage-api.js';
 import { stopWatch, reset, totalSeconds } from '../services/stop-watch.js';
 import handleEnter from './handle-enter.js';

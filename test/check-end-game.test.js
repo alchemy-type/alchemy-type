@@ -1,4 +1,4 @@
-import checkEndGame from '../src/practice/checkEndGame.js';
+import checkEndGame from '../src/practice/check-end-game.js';
 const test = QUnit.test;
 
 QUnit.module('checkEndGame');
