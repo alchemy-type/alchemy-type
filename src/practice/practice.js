@@ -19,6 +19,8 @@ let errorCountDisplay = document.getElementById('error-count');
 let errorsDisplay = document.getElementById('errors');
 let passageTitle = document.getElementById('title');
 
+statsApi.init();
+
 const searchParams = new URLSearchParams(window.location.search);
 const passageId = searchParams.get('id');
 
@@ -43,14 +45,14 @@ userInput.addEventListener('input', (event) => {
     emptyArray.push(event.target.value);
     userInputLength = emptyArray.length;
     userInput.value = '';
-    
+
     // Start timer on first character
     if(userInputLength === 1) {
         timer = setInterval(stopWatch, 1000);
     }
-    
+
     gameOver = checkEndGame(passageArray, emptyArray);
-    
+
     if(!gameOver) {
         let cursorObj = handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength, matchFlag);
         currentChar = cursorObj.currentChar;

@@ -1,26 +1,28 @@
 const functions = {
     id: 'functions',
     title: 'Javascript Functions',
+    description: 'Practice typing Javascript functions!',
     text: `function anotherNiceFunction() {
-    return 'I'm another function!'
+    return 'I'm another function!';
 }
-anotherNiceFunction
+anotherNiceFunction();
 function mathyFunction() {
     return 3 * 4;
 }
-mathyFunction
+mathyFunction();
 function anotherMathyFunction() {
     return (3 * 3) - 6;
 }
-anotherMathyFunction
+anotherMathyFunction();
 function functionWithOneParameter(parameter) {
-    return parameter
+    return parameter;
 }`
 };
 
 const loops = {
     id: 'loops',
     title: 'Javascript Loops',
+    description: 'Javascript loops are fun! How fast can you type?',
     text: `for(let i = 0; i < 100; i++) {
     console.log('The number is ', i);
 
@@ -33,12 +35,6 @@ for(let i = 100; i > 0; i--) {
 }`
 };
 
-const test = {
-    id: 'test',
-    title: 'test',
-    text: 'tests tests tests'
-};
-
-const templatePassages = [functions, loops, test];
+const templatePassages = [functions, loops];
 
 export default templatePassages;

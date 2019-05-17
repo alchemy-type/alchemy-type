@@ -9,7 +9,13 @@ function handleCursor(emptyArray, passageArray, passageParent, currentChar, user
     if(matchFlag) {
         currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
     } else {
-        errorChars.push(emptyArray[emptyArray.length - 1]);
+        if(emptyArray[emptyArray.length - 1] === ' ') {
+            errorChars.push(' ⎵');
+        } else if(emptyArray[emptyArray.length - 1] === '\n') {
+            errorChars.push(' ⏎');
+        } else {
+            errorChars.push(' ' + emptyArray[emptyArray.length - 1]);
+        }
     }
     handleErrorChar(matchFlag, passageParent, currentChar, userInputLength);
 

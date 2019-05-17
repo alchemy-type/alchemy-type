@@ -30,7 +30,7 @@ header {
 
 .passage-card:hover {
     box-shadow: 0px 0px 10px white;
-    transition: 1s;
+    transition: .5s;
 }
 
 #logo {
