@@ -40,6 +40,8 @@ let enterFlag = false;
 let timer = null;
 
 // Start cursor at the beginning
+emptyArray = handleEnter(userInputLength, passageArray, passageParent, emptyArray);
+userInputLength = emptyArray.length;
 let currentChar = handleCurrentChar(passageParent, passageParent.children[0], userInputLength);
 
 userInput.addEventListener('input', (event) => {
