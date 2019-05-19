@@ -77,9 +77,9 @@ userInput.addEventListener('input', (event) => {
         currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
 
         let viewportOffset = passageParent.children[userInputLength].getBoundingClientRect();
-        var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-        if(viewportOffset.bottom + viewportOffset.height + 100 > h) {
+        if(viewportOffset.bottom + viewportOffset.height + 100 > viewportHeight) {
             setTimeout(() => {
                 currentChar.scrollIntoView({ block: 'center' });
             });
