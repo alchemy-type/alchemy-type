@@ -1,7 +1,6 @@
 function handleEnter(userInputLength, passageArray, passageParent, emptyArray) {
     while(passageArray[userInputLength] === ' ' || passageArray[userInputLength] === '\n' ||
         passageParent.children[userInputLength].classList.contains('comment')) {
-
         if(passageArray[userInputLength] === ' ') {
             emptyArray.push(' ');
         } else if(passageArray[userInputLength] === '\n') {
@@ -11,6 +10,10 @@ function handleEnter(userInputLength, passageArray, passageParent, emptyArray) {
         }
 
         userInputLength++;
+
+        if(userInputLength >= passageParent.children.length) {
+            return emptyArray;
+        }
     }
 
     return emptyArray;

@@ -44,17 +44,22 @@ emptyArray = handleEnter(userInputLength, passageArray, passageParent, emptyArra
 userInputLength = emptyArray.length;
 let currentChar = handleCurrentChar(passageParent, passageParent.children[0], userInputLength);
 
+//If the passage starts with a comment this will be set to the character right after the comments end
+//Otherwise it will be 0
+let startingChar = userInputLength;
+let endingChar = getEndingChar(passageParent);
+
 userInput.addEventListener('input', (event) => {
     emptyArray.push(event.target.value);
     userInputLength = emptyArray.length;
     userInput.value = '';
 
     // Start timer on first character
-    if(userInputLength === 1) {
+    if(userInputLength === startingChar + 1) {
         timer = setInterval(stopWatch, 1000);
     }
 
-    gameOver = checkEndGame(passageArray, emptyArray);
+    gameOver = checkEndGame(passageArray, emptyArray, endingChar);
 
     if(!gameOver) {
         let cursorObj = handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength, matchFlag, errorChars);
@@ -72,21 +77,25 @@ userInput.addEventListener('input', (event) => {
         clearInterval(timer);
     }
 
-    // If user enters handle extra white space and returns
     if(enterFlag && matchFlag) {
         emptyArray = handleEnter(userInputLength, passageArray, passageParent, emptyArray);
         userInputLength = emptyArray.length;
         currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
 
-        let viewportOffset = passageParent.children[userInputLength].getBoundingClientRect();
-        let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        if(userInputLength < passageParent.children.length) {
+            let viewportOffset = passageParent.children[userInputLength].getBoundingClientRect();
+            let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-        if(viewportOffset.bottom + viewportOffset.height + 100 > viewportHeight) {
-            setTimeout(() => {
-                currentChar.scrollIntoView({ block: 'center' });
-            });
+            if(viewportOffset.bottom + viewportOffset.height + 100 > viewportHeight) {
+                setTimeout(() => {
+                    currentChar.scrollIntoView({ block: 'center' });
+                });
+            }
         }
+
     }
+    // If user enters handle extra white space and returns
+    gameOver = checkEndGame(passageArray, emptyArray);
     enterFlag = false;
 });
 
@@ -98,7 +107,7 @@ userInput.addEventListener('keydown', event => {
         userInputLength = emptyArray.length;
 
         // Reset timer if user deletes to first character
-        if(userInputLength === 0) {
+        if(userInputLength === startingChar) {
             reset();
             clearInterval(timer);
             errorChars = [];
@@ -123,3 +132,18 @@ userInput.addEventListener('keydown', event => {
 userInput.addEventListener('blur', () => {
     userInput.focus();
 });
+
+function getEndingChar(passageParent) {
+    let endCommentFlag = false;
+    for(let i = passageParent.children.length - 1; i > 0; i--) {
+        if(!passageParent.children[i].classList.contains('comment')) {
+            if(endCommentFlag) {
+                i--;
+            }
+            return i;
+        } else {
+            endCommentFlag = true;
+        }
+    }
+    return 0;
+}
