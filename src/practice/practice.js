@@ -105,7 +105,7 @@ userInput.addEventListener('keydown', event => {
         enterFlag = true;
     } else if(event.code === 'Backspace' && !gameOver &&
         userInputLength !== startingChar) {
-        emptyArray.pop();
+        let deletedChar = emptyArray.pop();
         userInputLength = emptyArray.length;
 
         // Reset timer if user deletes to first character
@@ -119,6 +119,10 @@ userInput.addEventListener('keydown', event => {
 
         // Handle cursor/text coloring
         currentChar.classList.remove('typed');
+        if(matchFlag) {
+            emptyArray = handleBackspace(passageParent, emptyArray, userInputLength, deletedChar);
+            userInputLength = emptyArray.length;
+        }
         let cursorObj = handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength, matchFlag, errorChars);
         currentChar = cursorObj.currentChar;
         matchFlag = cursorObj.matchFlag;
@@ -148,4 +152,29 @@ function getEndingChar(passageParent) {
         }
     }
     return 0;
+}
+
+function handleBackspace(passageParent, emptyArray, userInputLength, deletedChar) {
+    if(deletedChar !== '\n' && !detectTab(emptyArray, userInputLength, deletedChar)) {
+        return emptyArray;
+    }
+    while(emptyArray[userInputLength - 1] === '\n' || emptyArray[userInputLength - 1] === ' ' ||
+        passageParent.children[userInputLength - 1].classList.contains('comment')) {
+        deletedChar = emptyArray.pop();
+        userInputLength = emptyArray.length;
+    }
+    return emptyArray;
+}
+
+function detectTab(emptyArray, userInputLength, deletedChar) {
+    if(deletedChar !== ' ') {
+        return false;
+    }
+    while(emptyArray[userInputLength - 1] === ' ' || emptyArray[userInputLength - 1] === '\n') {
+        if(emptyArray[userInputLength - 1] === '\n') {
+            return true;
+        }
+        userInputLength--;
+    }
+    return false;
 }
