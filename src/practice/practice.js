@@ -100,9 +100,11 @@ userInput.addEventListener('input', (event) => {
 });
 
 userInput.addEventListener('keydown', event => {
+    userInputLength = emptyArray.length;
     if(event.code === 'Enter') {
         enterFlag = true;
-    } else if(event.code === 'Backspace' && !gameOver) {
+    } else if(event.code === 'Backspace' && !gameOver &&
+        userInputLength !== startingChar) {
         emptyArray.pop();
         userInputLength = emptyArray.length;
 
