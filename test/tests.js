@@ -11,3 +11,4 @@ import './handle-enter.test.js';
 import './calc-wpm.test.js';
 import './calc-stats.test.js';
 import './stats-api.test.js';
+import './get-ending-char.test.js';

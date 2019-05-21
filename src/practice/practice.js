@@ -8,6 +8,7 @@ import handleCursor from './handle-cursor.js';
 import calcWPM from './calc-WPM.js';
 import calcStats from './calc-stats.js';
 import statsApi from '../services/stats-api.js';
+import getEndingChar from './get-ending-char.js';
 
 let passageParent = document.getElementById('passage-characters');
 let userInput = document.getElementById('passage-input');
@@ -138,21 +139,6 @@ userInput.addEventListener('keydown', event => {
 userInput.addEventListener('blur', () => {
     userInput.focus();
 });
-
-function getEndingChar(passageParent) {
-    let endCommentFlag = false;
-    for(let i = passageParent.children.length - 1; i > 0; i--) {
-        if(!passageParent.children[i].classList.contains('comment')) {
-            if(endCommentFlag) {
-                i--;
-            }
-            return i;
-        } else {
-            endCommentFlag = true;
-        }
-    }
-    return 0;
-}
 
 function handleBackspace(passageParent, emptyArray, userInputLength, deletedChar) {
     if(deletedChar !== '\n' && !detectTab(emptyArray, userInputLength, deletedChar)) {
