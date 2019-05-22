@@ -3,10 +3,11 @@ const test = QUnit.test;
 
 QUnit.module('checkEndGame');
 
+const passageText = 'Line one;\nLine two;';
+const passageTextArray = Array.from(passageText);
+
 test('return true when the two arrays match', (assert) => {
     //Arrange
-    const passageText = 'Line one;\nLine two;';
-    const passageTextArray = Array.from(passageText);
     const userText = 'Line one;\nLine two;';
     const userTextArray = Array.from(userText);
     const expected = true;
@@ -16,10 +17,8 @@ test('return true when the two arrays match', (assert) => {
     assert.equal(result, expected);
 });
 
-test('return true when the two arrays do not match', (assert) => {
+test('return false when the two arrays do not match', (assert) => {
     //Arrange
-    const passageText = 'Line one;\nLine two;';
-    const passageTextArray = Array.from(passageText);
     const userText = 'Line one;\nLine two';
     const userTextArray = Array.from(userText);
     const expected = false;

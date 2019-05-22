@@ -2,8 +2,6 @@ import handleMatchFlag from './handle-match-flag.js';
 import handleCurrentChar from './handle-current-char.js';
 import handleErrorChar from './handle-error-char.js';
 
-
-
 function handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength, matchFlag, errorChars) {
     matchFlag = handleMatchFlag(emptyArray, passageArray, userInputLength);
     if(matchFlag) {

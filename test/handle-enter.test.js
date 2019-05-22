@@ -7,7 +7,9 @@ test('skips 2 extra spaces after enter input', function(assert) {
     //Arrange
     const passage = 'line one;\n  line two;';
     const passageArray = Array.from(passage);
-    const emptyArray = ['l', 'i', 'n', 'e', ' ', 'o', 'n', 'e', ';', '\n'];
+    // easier way to write this in your test:
+    const emptyArray = 'line one\n'.split('');
+    // const emptyArray = ['l', 'i', 'n', 'e', ' ', 'o', 'n', 'e', ';', '\n'];
     const userInputLength = emptyArray.length;
     const expected = ['l', 'i', 'n', 'e', ' ', 'o', 'n', 'e', ';', '\n', ' ', ' '];
     //Act
