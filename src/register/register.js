@@ -11,8 +11,6 @@ form.addEventListener('submit', (event) => {
         name: formData.get('name')
     };
 
-    console.log(user);
-
     onSubmitRegister(user);
 });
 
