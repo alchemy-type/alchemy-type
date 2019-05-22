@@ -8,6 +8,7 @@ const statsApi = {
         let statsGet = statsApi.get();
         if(!statsGet) {
             statsApi.init();
+            statsGet = statsApi.get();
         } 
         statsGet.passages += 1;
         statsGet.avgWPM = ((statsGet.avgWPM * (statsGet.passages - 1)) + stats.wpm) / statsGet.passages;
