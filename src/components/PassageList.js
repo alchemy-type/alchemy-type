@@ -1,5 +1,8 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
+import PassageLink from './PassageLink.js';
+
+import templatePassages from '../services/passage-data.js';
 
 class PassageList extends Component {
 
@@ -9,7 +12,17 @@ class PassageList extends Component {
         const logo = new Logo();
         const logoDOM = logo.render();
 
+
+        const passageParent = dom.querySelector('section');
+
         const main = dom.querySelector('main');
+
+        templatePassages.forEach(passage => {
+            const passageLink = new PassageLink({ passage });
+            const passageLinkDOM = passageLink.render();
+            passageParent.appendChild(passageLinkDOM);
+
+        });
 
         dom.insertBefore(logoDOM, main);
 
