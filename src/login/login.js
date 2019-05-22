@@ -10,8 +10,6 @@ form.addEventListener('submit', (event) => {
         password: formData.get('password'),
     };
 
-    console.log(user);
-
     onSubmitLogin(user);
 });
 
@@ -28,7 +26,6 @@ const onSubmitLogin = (user) => {
         .then(response => response.json())
         .then(data => {
             if(data.userId && data.success === 'true') {
-                console.log(data);
                 saveAuthToken(data.token);
             }
         });
