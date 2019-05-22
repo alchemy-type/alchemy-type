@@ -1,3 +1,5 @@
+import './html-equal.js';
+
 import './create-spans.test.js';
 import './handle-match-flag.test.js';
 import './passage-api.test.js';
@@ -14,3 +16,5 @@ import './stats-api.test.js';
 import './get-ending-char.test.js';
 import './handle-backspace.test.js';
 import './detect-tab.test.js';
+import './html-equal.test.js';
+import './html-to-DOM.test.js';
