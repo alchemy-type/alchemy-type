@@ -1,6 +1,7 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
 import PassageLink from './PassageLink.js';
+import Footer from './Footer.js';
 
 import templatePassages from '../services/passage-data.js';
 
@@ -12,6 +13,8 @@ class PassageList extends Component {
         const logo = new Logo();
         const logoDOM = logo.render();
 
+        const footer = new Footer();
+        const footerDOM = footer.render();
 
         const passageParent = dom.querySelector('section');
 
@@ -25,6 +28,7 @@ class PassageList extends Component {
         });
 
         dom.insertBefore(logoDOM, main);
+        dom.appendChild(footerDOM);
 
         return dom;
     }
@@ -35,7 +39,6 @@ class PassageList extends Component {
             <main>
                 <h1>Choose a lesson!</h1>
                 <section id="passage-list"></section>
-                <a href="./index.html"><button>Back Home</button></a>
             </main>
         </div>
        
