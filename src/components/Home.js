@@ -1,13 +1,25 @@
 import Component from './Component.js';
+import Logo from './Logo.js';
 
 class Home extends Component {
+
+    render() {
+        const homeDOM = this.renderDOM();
+
+        const logo = new Logo();
+        const logoDOM = logo.render();
+
+        const main = homeDOM.querySelector('main');
+
+        homeDOM.insertBefore(logoDOM, main);
+
+        return homeDOM;
+    }
 
     renderTemplate() {
         return /*html*/`
         <div>
-            <section class="logo">
-                <img id="logo" src="assets/alchemy-type.png">
-            </section>
+            <main></main>
             <section class="container">
                 <a href="./passage-list.html"><button>Practice your typing!</button></a>
                 <a href="./passage-form.html"><button>Add a new Passage!</button></a>
