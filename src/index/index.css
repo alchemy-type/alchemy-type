@@ -27,7 +27,11 @@ body {
     width: 400px;
 }
 
-section {
+.logo {
+    align-items: center;
+}
+
+.container {
     margin: 25px;
     padding: 25px;
     width: 400px;
@@ -39,7 +43,7 @@ section {
     animation: fade 1s;
 }
 
-section:hover {
+.container:hover {
     box-shadow: 0px 0px 10px white;
     transition: 1s;
 }

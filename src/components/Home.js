@@ -5,10 +5,10 @@ class Home extends Component {
     renderTemplate() {
         return /*html*/`
         <div>
-            <header>
+            <section class="logo">
                 <img id="logo" src="assets/alchemy-type.png">
-            </header>
-            <section>
+            </section>
+            <section class="container">
                 <a href="./passage-list.html"><button>Practice your typing!</button></a>
                 <a href="./passage-form.html"><button>Add a new Passage!</button></a>
                 <a href="./stats.html"><button>View your stats!</button></a>
