@@ -1,5 +1,7 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
+import HomeNav from './HomeNav.js';
+import HomeFooter from './HomeFooter.js';
 
 class Home extends Component {
 
@@ -9,9 +11,17 @@ class Home extends Component {
         const logo = new Logo();
         const logoDOM = logo.render();
 
+        const homeNav = new HomeNav();
+        const homeNavDOM = homeNav.render();
+
+        const homeFooter = new HomeFooter();
+        const homeFooterDOM = homeFooter.render();
+
         const main = homeDOM.querySelector('main');
 
         homeDOM.insertBefore(logoDOM, main);
+        main.appendChild(homeNavDOM);
+        homeDOM.appendChild(homeFooterDOM);
 
         return homeDOM;
     }
@@ -20,14 +30,6 @@ class Home extends Component {
         return /*html*/`
         <div>
             <main></main>
-            <section class="container">
-                <a href="./passage-list.html"><button>Practice your typing!</button></a>
-                <a href="./passage-form.html"><button>Add a new Passage!</button></a>
-                <a href="./stats.html"><button>View your stats!</button></a>
-            </section>
-            <footer>
-                <a href="./about-us.html"><button>About Us</button></a>
-            </footer>
         </div>
     `;
     }
