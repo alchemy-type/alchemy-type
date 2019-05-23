@@ -2,7 +2,7 @@ import Component from './Component.js';
 import Logo from './Logo.js';
 import Footer from './Footer.js';
 
-class PassageForm extends Component {
+class PassageEntry extends Component {
 
     render() {
         const dom = this.renderDOM();
@@ -48,4 +48,4 @@ class PassageForm extends Component {
 
 }
 
-export default PassageForm;
+export default PassageEntry;
