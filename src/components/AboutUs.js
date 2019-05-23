@@ -1,5 +1,6 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
+import Footer from './Footer.js';
 
 class AboutUs extends Component {
 
@@ -9,9 +10,13 @@ class AboutUs extends Component {
         const logo = new Logo();
         const logoDOM = logo.render();
 
+        const footer = new Footer();
+        const footerDOM = footer.render();
+
         const main = dom.querySelector('main');
 
         dom.insertBefore(logoDOM, main);
+        dom.appendChild(footerDOM);
 
         return dom;
     }
@@ -56,9 +61,6 @@ class AboutUs extends Component {
                     </section>
                 </section>
             </main>
-        <footer>
-            <a href="./index.html"><button>Back Home</button></a>
-        </footer>
     </section>
     `;
     }
