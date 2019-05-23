@@ -1,18 +1,34 @@
 import Component from './Component.js';
+import Logo from './Logo.js';
+import Timer from './Timer.js';
+import PassageTitle from './PassageTitle.js';
 
 class Practice extends Component {
+
+    render() {
+        const dom = this.renderDOM();
+
+        const logo = new Logo();
+        const logoDOM = logo.render();
+
+        const timer = new Timer();
+        const timerDOM = timer.render();
+
+        const passageTitle = new PassageTitle();
+        const passageTitleDOM = passageTitle.render();
+
+        const main = dom.querySelector('main');
+
+        dom.insertBefore(logoDOM, main);
+        dom.insertBefore(passageTitleDOM, main);
+        dom.insertBefore(timerDOM, main);
+
+        return dom;
+    }
 
     renderTemplate() {
         return /*html*/`
         <div>
-            <header>
-                <a href="./index.html"><img src="./assets/alchemy-type.png" id="logo"></a>
-                <h1 id="title"></h1>
-                <p id="timer">
-                <label id="minutes">00</label>:<label id="seconds">00</label>
-                </p>
-            </header>
-
             <main class="container">
                 <section id="passage-characters"></section>
                 <textarea id="passage-input" autofocus></textarea>
