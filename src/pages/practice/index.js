@@ -1,5 +1,5 @@
 import Practice from '../../components/Practice.js';
-console.log('practice');
+
 const practice = new Practice();
 const practiceDOM = practice.render();
 
