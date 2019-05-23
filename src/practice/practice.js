@@ -19,7 +19,6 @@ let statsDisplay = document.getElementById('stats-container');
 let wpmDisplay = document.getElementById('wpm');
 let errorCountDisplay = document.getElementById('error-count');
 let errorsDisplay = document.getElementById('errors');
-let passageTitle = document.getElementById('title');
 
 statsApi.init();
 
@@ -27,7 +26,6 @@ const searchParams = new URLSearchParams(window.location.search);
 const passageId = searchParams.get('id');
 
 const passage = passageApi.get(passageId);
-passageTitle.textContent = passage.title;
 
 createSpans(passage.text, passageParent);
 

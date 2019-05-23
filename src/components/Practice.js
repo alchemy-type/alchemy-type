@@ -4,6 +4,13 @@ import Timer from './Timer.js';
 import PassageTitle from './PassageTitle.js';
 import PracticeStats from './PracticeStats.js';
 
+import passageApi from '../services/passage-api.js';
+
+const searchParams = new URLSearchParams(window.location.search);
+const passageId = searchParams.get('id');
+
+const passage = passageApi.get(passageId);
+
 class Practice extends Component {
 
     render() {
@@ -15,7 +22,7 @@ class Practice extends Component {
         const timer = new Timer();
         const timerDOM = timer.render();
 
-        const passageTitle = new PassageTitle();
+        const passageTitle = new PassageTitle({ title: passage.title });
         const passageTitleDOM = passageTitle.render();
 
         const practiceStats = new PracticeStats();

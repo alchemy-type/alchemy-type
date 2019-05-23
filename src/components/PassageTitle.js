@@ -3,8 +3,9 @@ import Component from './Component.js';
 class PassageTitle extends Component {
 
     renderTemplate() {
+        const title = this.props.title;
         return /*html*/`
-            <h1 id="title"></h1>
+            <h1 id="title">${title}</h1>
         `;
     }
 
