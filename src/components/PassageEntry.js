@@ -1,6 +1,7 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
 import Footer from './Footer.js';
+import PassageForm from './PassageForm.js';
 
 class PassageEntry extends Component {
 
@@ -13,7 +14,11 @@ class PassageEntry extends Component {
         const footer = new Footer();
         const footerDOM = footer.render();
 
+        const passageForm = new PassageForm();
+        const passageFormDOM = passageForm.render();
+
         dom.prepend(logoDOM);
+        dom.appendChild(passageFormDOM);
         dom.appendChild(footerDOM);
 
         return dom;
@@ -21,28 +26,9 @@ class PassageEntry extends Component {
 
     renderTemplate() {
         return /*html*/`
-        <div>
-                
+        <div>        
             <h1>Passage Form</h1>
-            <form id="passage-form">
-                <label>Title:</label>
-                <input id="title" name="title" required>
-                <label>Description:</label>
-                <input id="description" name="description" maxlength="240">
-                <label>Text:</label>
-                <textarea id="text" name="text" placeholder="Type or insert your passage here." required></textarea>
-                <label for="language">Language:</label>
-                <select name="language" required>
-                    <option value="" hidden disabled selected>Language</option>
-                    <option value="JavaScript">JavaScript</option>
-                    <option value="HTML">HTML</option>
-                    <option value="CSS">CSS</option>
-                </select>
-                <button>Submit</button>
-            </form>
-
         </div>
-
         `;
     }
 
