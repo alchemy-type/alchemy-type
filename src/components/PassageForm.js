@@ -1,5 +1,6 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
+import Footer from './Footer.js';
 
 class PassageForm extends Component {
 
@@ -9,7 +10,11 @@ class PassageForm extends Component {
         const logo = new Logo();
         const logoDOM = logo.render();
 
+        const footer = new Footer();
+        const footerDOM = footer.render();
+
         dom.prepend(logoDOM);
+        dom.appendChild(footerDOM);
 
         return dom;
     }
@@ -35,8 +40,7 @@ class PassageForm extends Component {
                 </select>
                 <button>Submit</button>
             </form>
-            
-            <a href="./index.html"><button>Back Home</button></a>
+
         </div>
 
         `;
