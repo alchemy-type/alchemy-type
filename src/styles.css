@@ -17,3 +17,7 @@ button {
     font-size: 1.1em;
     outline: none;
 }
+
+#logo {
+    width: 300px;
+}
