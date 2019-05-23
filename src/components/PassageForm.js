@@ -1,15 +1,24 @@
 import Component from './Component.js';
+import Logo from './Logo.js';
 
 class PassageForm extends Component {
+
+    render() {
+        const dom = this.renderDOM();
+
+        const logo = new Logo();
+        const logoDOM = logo.render();
+
+        dom.prepend(logoDOM);
+
+        return dom;
+    }
 
     renderTemplate() {
         return /*html*/`
         <div>
-            <header>
-                <a href="./index.html"><img src="./assets/alchemy-type.png" id="logo"></a>
-                <h1>Passage Form</h1>
-            </header>
-
+                
+            <h1>Passage Form</h1>
             <form id="passage-form">
                 <label>Title:</label>
                 <input id="title" name="title" required>
