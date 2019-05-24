@@ -96,6 +96,9 @@ class Practice extends Component {
                 matchFlag = cursorObj.matchFlag;
             } else {
                 // Stop timer and display stats on gameOver
+                if(totalSeconds === 0) {
+                    totalSeconds = 1;
+                }
                 const wpm = calcWPM(emptyArray, totalSeconds);
                 const stats = calcStats(wpm, errorChars);
                 statsClass = '';
