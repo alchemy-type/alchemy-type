@@ -1,6 +1,7 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
 import Footer from './Footer.js';
+import statsApi from '../services/stats-api.js';
 
 class Stats extends Component {
 
@@ -12,6 +13,18 @@ class Stats extends Component {
 
         const footer = new Footer();
         const footerDOM = footer.render();
+
+        statsApi.init();
+        const stats = statsApi.get();
+
+        const avgWPM = dom.querySelector('#avg-wpm');
+        avgWPM.textContent = stats.avgWPM.toFixed(2);
+
+        const avgErrors = dom.querySelector('#avg-error-count');
+        avgErrors.textContent = stats.avgErrors.toFixed(2);
+
+        const passages = dom.querySelector('#passages');
+        passages.textContent = stats.passages;
 
         dom.prepend(logoDOM);
         dom.appendChild(footerDOM);
