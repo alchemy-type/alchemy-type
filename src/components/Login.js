@@ -1,5 +1,6 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
+import Footer from './Footer.js';
 
 class Login extends Component {
 
@@ -9,7 +10,11 @@ class Login extends Component {
         const logo = new Logo();
         const logoDOM = logo.render();
 
+        const footer = new Footer();
+        const footerDOM = footer.render();
+
         dom.prepend(logoDOM);
+        dom.appendChild(footerDOM);
 
         return dom;
     }
@@ -25,7 +30,6 @@ class Login extends Component {
                 <input id="password" name="password" type="password" required></input>
                 <button>Submit</button>
             </form>
-            <a href="./index.html"><button>Back Home</button></a>
         </section>
     `;
     }
