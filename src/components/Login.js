@@ -1,13 +1,22 @@
 import Component from './Component.js';
+import Logo from './Logo.js';
 
 class Login extends Component {
+
+    render() {
+        const dom = this.renderDOM();
+
+        const logo = new Logo();
+        const logoDOM = logo.render();
+
+        dom.prepend(logoDOM);
+
+        return dom;
+    }
 
     renderTemplate() {
         return /*html*/`
         <section>
-            <header>
-                <a href="./index.html"><img src="./assets/alchemy-type.png" id="logo"></a>
-            </header>
             <h1>Login</h1>
             <form id="login-form">
                 <label>Email:</label>
