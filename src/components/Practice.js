@@ -13,9 +13,9 @@ import handleCursor from '../practice/handle-cursor.js';
 import checkEndGame from '../practice/check-end-game.js';
 import handleBackspace from '../practice/handle-backspace.js';
 import { time } from '../services/stop-watch.js';
-// import calcWPM from './calc-WPM.js';
-// import calcStats from './calc-stats.js';
-// import statsApi from '../services/stats-api.js';
+import calcWPM from '../practice/calc-WPM.js';
+import calcStats from '../practice/calc-stats.js';
+import statsApi from '../services/stats-api.js';
 
 const searchParams = new URLSearchParams(window.location.search);
 const passageId = searchParams.get('id');
@@ -36,8 +36,10 @@ let endingChar = null;
 let timer = 0;
 
 let totalSeconds = 0;
+let wpm = 0;
 let seconds = '00';
 let minutes = '00';
+let statsClass = 'hidden';
 
 class Practice extends Component {
 
@@ -53,7 +55,7 @@ class Practice extends Component {
         const passageTitle = new PassageTitle({ title: passage.title });
         const passageTitleDOM = passageTitle.render();
 
-        const practiceStats = new PracticeStats();
+        const practiceStats = new PracticeStats({ wpm, errorChars, statsClass });
         const practiceStatsDOM = practiceStats.render();
 
         const main = dom.querySelector('main');
@@ -78,7 +80,6 @@ class Practice extends Component {
             // Start timer on first character
             if(userInputLength === startingChar + 1) {
                 timerDisplay.update({ action: 'start' });
-                //setInterval(stopWatch, 1000);
                 timer = setInterval(() => {
                     totalSeconds++;
                     seconds = time(totalSeconds % 60);
@@ -95,13 +96,11 @@ class Practice extends Component {
                 matchFlag = cursorObj.matchFlag;
             } else {
                 // Stop timer and display stats on gameOver
-                // const wpm = calcWPM(emptyArray, totalSeconds);
-                // const stats = calcStats(wpm, errorChars);
-                // statsApi.save(stats);
-                // wpmDisplay.textContent = wpm;
-                // errorCountDisplay.textContent = errorChars.length;
-                // errorsDisplay.textContent = errorChars;
-                // statsDisplay.classList.remove('hidden');
+                const wpm = calcWPM(emptyArray, totalSeconds);
+                const stats = calcStats(wpm, errorChars);
+                statsClass = '';
+                statsApi.save(stats);
+                practiceStats.update({ wpm, errorChars, statsClass });
                 clearInterval(timer);
             }
 
