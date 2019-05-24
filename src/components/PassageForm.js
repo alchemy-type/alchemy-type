@@ -1,6 +1,24 @@
 import Component from './Component.js';
+import makePassage from '../passage-form/make-passage.js';
+import passageApi from '../services/passage-api.js';
 
 class PassageForm extends Component {
+
+    render() {
+        const dom = this.renderDOM();
+
+        dom.addEventListener('submit', event => {
+            event.preventDefault();
+
+            const formData = new FormData(dom);
+            formData.set('date', Date.now());
+            const passage = makePassage(formData);
+            passageApi.save(passage);
+            window.location = './passage-list.html';
+        });
+
+        return dom;
+    }
 
     renderTemplate() {
 
