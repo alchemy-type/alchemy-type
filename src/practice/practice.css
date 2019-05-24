@@ -31,6 +31,10 @@ section.hidden {
     transition: 2s;
 }
 
+span.comment {
+    color: gray;
+}
+
 #stats-container {
     display: flex;
     flex-direction: column;
