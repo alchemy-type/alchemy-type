@@ -1,4 +1,4 @@
-import createSpans from './create-spans.js';
+// import createSpans from './create-spans.js';
 import handleCurrentChar from './handle-current-char.js';
 import checkEndGame from './check-end-game.js';
 import passageApi from '../services/passage-api.js';
@@ -19,6 +19,7 @@ let statsDisplay = document.getElementById('stats-container');
 let wpmDisplay = document.getElementById('wpm');
 let errorCountDisplay = document.getElementById('error-count');
 let errorsDisplay = document.getElementById('errors');
+let passageTitle = document.getElementById('title');
 
 statsApi.init();
 
@@ -26,8 +27,9 @@ const searchParams = new URLSearchParams(window.location.search);
 const passageId = searchParams.get('id');
 
 const passage = passageApi.get(passageId);
+passageTitle.textContent = passage.title;
 
-createSpans(passage.text, passageParent);
+// createSpans(passage.text, passageParent);
 
 const passageArray = Array.from(passage.text);
 let emptyArray = [];
