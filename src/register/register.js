@@ -1,19 +1,3 @@
-const form = document.getElementById('register-form');
-
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(form);
-
-    const user = {
-        email: formData.get('email'),
-        password: formData.get('password'),
-        name: formData.get('name')
-    };
-
-    onSubmitRegister(user);
-});
-
 const onSubmitRegister = (user) => {
     fetch('http://localhost:3000/register', {
         method: 'post',
@@ -31,3 +15,5 @@ const onSubmitRegister = (user) => {
             }
         });
 };
+
+export { onSubmitRegister };
