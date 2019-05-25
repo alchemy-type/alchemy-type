@@ -13,8 +13,9 @@ const onSubmitLogin = (user, onProcessLogin) => {
             if(data.userId && data.success === 'true') {
                 saveAuthToken(data.token);
                 onProcessLogin(true);
+            } else {
+                onProcessLogin(false);
             }
-            onProcessLogin(false);
         });
 };
 
