@@ -1,4 +1,4 @@
-const onSubmitLogin = (user) => {
+const onSubmitLogin = (user, onProcessLogin) => {
     event.preventDefault();
     fetch('http://localhost:3000/login', {
         method: 'post',
@@ -12,12 +12,15 @@ const onSubmitLogin = (user) => {
         .then(data => {
             if(data.userId && data.success === 'true') {
                 saveAuthToken(data.token);
+                onProcessLogin(true);
             }
+            onProcessLogin(false);
         });
 };
 
 const saveAuthToken = token => {
     window.sessionStorage.setItem('token', token);
+    window.location = './index.html';
 };
 
 export { onSubmitLogin };

@@ -21,3 +21,7 @@ button {
 #logo {
     width: 300px;
 }
+
+.login-error {
+    color: red;
+}
