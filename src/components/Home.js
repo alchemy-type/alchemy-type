@@ -2,11 +2,12 @@ import Component from './Component.js';
 import Logo from './Logo.js';
 import HomeNav from './HomeNav.js';
 import HomeFooter from './HomeFooter.js';
+import Header from './Header.js';
 
 class Home extends Component {
 
     render() {
-        const homeDOM = this.renderDOM();
+        const dom = this.renderDOM();
 
         const logo = new Logo();
         const logoDOM = logo.render();
@@ -17,13 +18,17 @@ class Home extends Component {
         const homeFooter = new HomeFooter();
         const homeFooterDOM = homeFooter.render();
 
-        const main = homeDOM.querySelector('main');
+        const header = new Header();
+        const headerDOM = header.render();
 
-        homeDOM.insertBefore(logoDOM, main);
+        const main = dom.querySelector('main');
+
+        dom.prepend(headerDOM);
+        main.appendChild(logoDOM);
         main.appendChild(homeNavDOM);
-        homeDOM.appendChild(homeFooterDOM);
+        main.appendChild(homeFooterDOM);
 
-        return homeDOM;
+        return dom;
     }
 
     renderTemplate() {
