@@ -1,6 +1,7 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
 import Footer from './Footer.js';
+import { onSubmitLogin } from '../login/login.js';
 
 class Login extends Component {
 
@@ -12,6 +13,21 @@ class Login extends Component {
 
         const footer = new Footer();
         const footerDOM = footer.render();
+
+        const form = dom.querySelector('form');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            const user = {
+                email: formData.get('email'),
+                password: formData.get('password'),
+            };
+
+            onSubmitLogin(user);
+        });
 
         dom.prepend(logoDOM);
         dom.appendChild(footerDOM);

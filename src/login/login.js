@@ -1,18 +1,3 @@
-const form = document.getElementById('login-form');
-
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(form);
-
-    const user = {
-        email: formData.get('email'),
-        password: formData.get('password'),
-    };
-
-    onSubmitLogin(user);
-});
-
 const onSubmitLogin = (user) => {
     event.preventDefault();
     fetch('http://localhost:3000/login', {
@@ -34,3 +19,5 @@ const onSubmitLogin = (user) => {
 const saveAuthToken = token => {
     window.sessionStorage.setItem('token', token);
 };
+
+export { onSubmitLogin };
