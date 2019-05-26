@@ -1,5 +1,5 @@
 import Component from './Component.js';
-import { onSubmitLogin } from '../login/login.js';
+import onSubmitLogin from '../pages/login/login.js';
 
 class LoginForm extends Component {
 

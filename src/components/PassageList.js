@@ -4,7 +4,7 @@ import PassageLink from './PassageLink.js';
 import Footer from './Footer.js';
 import Header from './Header.js';
 
-import { checkAuth } from '../login/Login.js';
+import authApi from '../services/auth-api.js';
 import passageApi from '../services/passage-api.js';
 import templatePassages from '../services/passage-data.js';
 
@@ -22,7 +22,7 @@ class PassageList extends Component {
         const header = new Header({ user: this.state.user });
         const headerDOM = header.render();
 
-        checkAuth((data) => {
+        authApi.checkAuth((data) => {
             this.state.user = data;
             header.update({ user: this.state.user });
         });

@@ -2,7 +2,7 @@ import Component from './Component.js';
 import Header from './Header.js';
 import Logo from './Logo.js';
 import LandingNav from './LandingNav.js';
-import { checkAuth } from '../login/Login.js';
+import authApi from '../services/auth-api.js';
 
 class Landing extends Component {
 
@@ -12,7 +12,7 @@ class Landing extends Component {
         const header = new Header({ user: this.state.user });
         const headerDOM = header.render();
 
-        checkAuth((data) => {
+        authApi.checkAuth((data) => {
             this.state.user = data;
             header.update({ user: this.state.user });
         });
