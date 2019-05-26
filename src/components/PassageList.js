@@ -2,8 +2,10 @@ import Component from './Component.js';
 import Logo from './Logo.js';
 import PassageLink from './PassageLink.js';
 import Footer from './Footer.js';
-import passageApi from '../services/passage-api.js';
+import Header from './Header.js';
 
+import { checkAuth } from '../login/Login.js';
+import passageApi from '../services/passage-api.js';
 import templatePassages from '../services/passage-data.js';
 
 class PassageList extends Component {
@@ -16,6 +18,16 @@ class PassageList extends Component {
 
         const footer = new Footer();
         const footerDOM = footer.render();
+
+        const header = new Header({ user: this.state.user });
+        const headerDOM = header.render();
+
+        checkAuth((data) => {
+            this.state.user = data;
+            header.update({ user: this.state.user });
+        });
+
+
 
         const passageParent = dom.querySelector('#passage-list');
 
@@ -39,15 +51,16 @@ class PassageList extends Component {
             passageParent.appendChild(passageLinkDOM);
         });
 
-        dom.insertBefore(logoDOM, main);
-        dom.appendChild(footerDOM);
+        dom.prepend(headerDOM);
+        main.prepend(logoDOM);
+        main.appendChild(footerDOM);
 
         return dom;
     }
 
     renderTemplate() {
         return /*html*/`
-        <div class="container">
+        <div>
             <main>
                 <h1>Choose a lesson!</h1>
                 <section id="passage-list"></section>
