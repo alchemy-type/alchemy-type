@@ -3,6 +3,7 @@ import Logo from './Logo.js';
 import HomeNav from './HomeNav.js';
 import HomeFooter from './HomeFooter.js';
 import Header from './Header.js';
+import { checkAuth } from '../login/Login.js';
 
 class Home extends Component {
 
@@ -18,8 +19,13 @@ class Home extends Component {
         const homeFooter = new HomeFooter();
         const homeFooterDOM = homeFooter.render();
 
-        const header = new Header();
+        const header = new Header({ user: this.state.user });
         const headerDOM = header.render();
+
+        checkAuth((data) => {
+            this.state.user = data;
+            header.update({ user: this.state.user });
+        });
 
         const main = dom.querySelector('main');
 
