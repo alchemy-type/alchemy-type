@@ -37,9 +37,13 @@ const checkAuth = (onLoadUser) => {
     }
 };
 
+const logout = () => {
+    sessionStorage.removeItem('token');
+};
+
 const saveAuthToken = token => {
     window.sessionStorage.setItem('token', token);
     window.location = './index.html';
 };
 
-export { onSubmitLogin, checkAuth };
+export { onSubmitLogin, logout, checkAuth };
