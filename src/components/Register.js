@@ -1,7 +1,7 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
 import Footer from './Footer.js';
-import { onSubmitRegister } from '../register/register.js';
+import { onSubmitRegister } from '../pages/register/register.js';
 
 class Register extends Component {
 
