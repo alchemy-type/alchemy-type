@@ -27,8 +27,6 @@ class PassageList extends Component {
             header.update({ user: this.state.user });
         });
 
-
-
         const passageParent = dom.querySelector('#passage-list');
 
         const main = dom.querySelector('main');
