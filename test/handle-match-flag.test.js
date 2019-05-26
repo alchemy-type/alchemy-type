@@ -1,4 +1,4 @@
-import handleMatchFlag from '../src/practice/handle-match-flag.js';
+import handleMatchFlag from '../src/pages/practice/handle-match-flag.js';
 const test = QUnit.test;
 
 QUnit.module('handle match flag');

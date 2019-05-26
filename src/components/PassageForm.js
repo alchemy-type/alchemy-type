@@ -1,5 +1,5 @@
 import Component from './Component.js';
-import makePassage from '../passage-form/make-passage.js';
+import makePassage from '../pages/passage-entry/make-passage.js';
 import passageApi from '../services/passage-api.js';
 
 class PassageForm extends Component {

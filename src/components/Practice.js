@@ -5,16 +5,16 @@ import PassageTitle from './PassageTitle.js';
 import PracticeStats from './PracticeStats.js';
 
 import passageApi from '../services/passage-api.js';
-import createSpans from '../practice/create-spans.js';
-import handleEnter from '../practice/handle-enter.js';
-import handleCurrentChar from '../practice/handle-current-char.js';
-import getEndingChar from '../practice/get-ending-char.js';
-import handleCursor from '../practice/handle-cursor.js';
-import checkEndGame from '../practice/check-end-game.js';
-import handleBackspace from '../practice/handle-backspace.js';
+import createSpans from '../pages/practice/create-spans.js';
+import handleEnter from '../pages/practice/handle-enter.js';
+import handleCurrentChar from '../pages/practice/handle-current-char.js';
+import getEndingChar from '../pages/practice/get-ending-char.js';
+import handleCursor from '../pages/practice/handle-cursor.js';
+import checkEndGame from '../pages/practice/check-end-game.js';
+import handleBackspace from '../pages/practice/handle-backspace.js';
 import { time } from '../services/stop-watch.js';
-import calcWPM from '../practice/calc-WPM.js';
-import calcStats from '../practice/calc-stats.js';
+import calcWPM from '../pages/practice/calc-WPM.js';
+import calcStats from '../pages/practice/calc-stats.js';
 import statsApi from '../services/stats-api.js';
 
 const searchParams = new URLSearchParams(window.location.search);

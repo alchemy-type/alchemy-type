@@ -1,5 +1,5 @@
-import createSpans from '../src/practice/create-spans.js';
-import handleCurrentChar from '../src/practice/handle-current-char.js';
+import createSpans from '../src/pages/practice/create-spans.js';
+import handleCurrentChar from '../src/pages/practice/handle-current-char.js';
 const test = QUnit.test;
 
 QUnit.module('Handle Current Char');
