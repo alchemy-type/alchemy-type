@@ -1,7 +1,10 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
 import Footer from './Footer.js';
+import Header from './Header.js';
 import LoginForm from './LoginForm.js';
+
+import authApi from '../services/auth-api.js';
 
 class Login extends Component {
 
@@ -14,6 +17,14 @@ class Login extends Component {
         const footer = new Footer();
         const footerDOM = footer.render();
 
+        const header = new Header({ user: this.state.user });
+        const headerDOM = header.render();
+
+        authApi.checkAuth((data) => {
+            this.state.user = data;
+            header.update({ user: this.state.user });
+        });
+
         const loginForm = new LoginForm({
             loginSuccess: true,
             onProcessLogin: (status) => {
@@ -22,18 +33,23 @@ class Login extends Component {
         });
         const loginFormDOM = loginForm.render();
 
-        dom.prepend(logoDOM);
-        dom.appendChild(loginFormDOM);
-        dom.appendChild(footerDOM);
+        const main = dom.querySelector('main');
+
+        dom.prepend(headerDOM);
+        main.prepend(logoDOM);
+        main.appendChild(loginFormDOM);
+        main.appendChild(footerDOM);
 
         return dom;
     }
 
     renderTemplate() {
         return /*html*/`
-        <section>
-            <h1>Login</h1>
-        </section>
+        <div>
+            <main class="container">
+                <h1>Login</h1>
+            </main>
+        </div>
     `;
     }
 

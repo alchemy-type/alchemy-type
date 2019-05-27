@@ -1,7 +1,10 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
 import Footer from './Footer.js';
+import Header from './Header.js';
 import { onSubmitRegister } from '../pages/register/register.js';
+
+import authApi from '../services/auth-api.js';
 
 class Register extends Component {
 
@@ -13,6 +16,14 @@ class Register extends Component {
 
         const footer = new Footer();
         const footerDOM = footer.render();
+
+        const header = new Header({ user: this.state.user });
+        const headerDOM = header.render();
+
+        authApi.checkAuth((data) => {
+            this.state.user = data;
+            header.update({ user: this.state.user });
+        });
 
         const form = dom.querySelector('form');
 
@@ -30,8 +41,11 @@ class Register extends Component {
             onSubmitRegister(user);
         });
 
-        dom.prepend(logoDOM);
-        dom.appendChild(footerDOM);
+        const main = dom.querySelector('main');
+
+        dom.prepend(headerDOM);
+        main.prepend(logoDOM);
+        main.appendChild(footerDOM);
 
         return dom;
     }
@@ -40,16 +54,18 @@ class Register extends Component {
     renderTemplate() {
         return /*html*/`
         <div>
-            <h1>Register</h1>
-            <form id="register-form">
-                <label>Email:</label>
-                <input id="email" name="email" required>
-                <label>Name:</label>
-                <input id="name" name="name" maxlength="240">
-                <label>Password:</label>
-                <input id="password" name="password" type="password" required></input>
-                <button>Submit</button>
-            </form>
+            <main>
+                <h1>Register</h1>
+                <form id="register-form">
+                    <label>Email:</label>
+                    <input id="email" name="email" required>
+                    <label>Name:</label>
+                    <input id="name" name="name" maxlength="240">
+                    <label>Password:</label>
+                    <input id="password" name="password" type="password" required></input>
+                    <button>Submit</button>
+                </form>
+            </main>
         </div>
     `;
     }

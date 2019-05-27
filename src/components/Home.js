@@ -3,6 +3,7 @@ import Logo from './Logo.js';
 import HomeNav from './HomeNav.js';
 import HomeFooter from './HomeFooter.js';
 import Header from './Header.js';
+
 import authApi from '../services/auth-api.js';
 
 class Home extends Component {
