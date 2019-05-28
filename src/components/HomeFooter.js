@@ -5,7 +5,7 @@ class HomeFooter extends Component {
     renderTemplate() {
         return /*html*/`
         <footer>
-            <a href="./about-us.html"><button>About Us</button></a>
+            <a href="./about-us.html"><button class="transition-button">About Us</button></a>
         </footer>
     `;
     }

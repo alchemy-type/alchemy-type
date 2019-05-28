@@ -35,7 +35,7 @@ main {
     transition: 1s;
 }
 
-button {
+.transition-button {
     padding: 10px;
     margin: 10px;
     font-family: 'Ubuntu Mono';
@@ -48,7 +48,7 @@ button {
     animation: fade 1s;
 }
 
-button:hover {
+.transition-button:hover {
     border: 2px solid white;
     box-shadow: 0px 0px 10px white;
     transition: .5s;
