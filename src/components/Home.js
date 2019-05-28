@@ -27,7 +27,6 @@ class Home extends Component {
             const header = new Header({ user: this.state.user });
             const headerDOM = header.render();
             dom.prepend(headerDOM);
-            // header.update({ user: this.state.user });
         });
 
         const main = dom.querySelector('main');
