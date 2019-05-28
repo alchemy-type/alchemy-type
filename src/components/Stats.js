@@ -40,7 +40,7 @@ class Stats extends Component {
         const main = dom.querySelector('main');
 
         dom.prepend(headerDOM);
-        main.appendChild(logoDOM);
+        main.prepend(logoDOM);
         main.appendChild(footerDOM);
 
         return dom;
