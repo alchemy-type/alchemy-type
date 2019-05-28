@@ -14,6 +14,10 @@ const authApi = {
                     onLoadUser(data);
                 })
                 .catch('Error checking authorization');
+        } else if(window.location.pathname !== '/landing.html' &&
+            window.location.pathname !== '/login.html' &&
+            window.location.pathname !== '/register.html') {
+            window.location = './landing.html';
         }
     },
     saveAuthToken(token) {
