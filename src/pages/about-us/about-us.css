@@ -6,30 +6,29 @@ html {
 
 body {
     margin: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-#main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    vertical-align: middle;
+main {
     background-color: #282828c4;
     height: auto;
     width: 75vw;
     border: 3px #84ef8e solid;
     border-radius: 20px;
     box-shadow: 0px 0px 10px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+    margin: 5em auto;
 }
 
-main {
+.contributor-container {
     display: flex;
     flex-direction: row;
     margin-top: 35px;
+    justify-content: center;
 }
 
 .box:hover {
