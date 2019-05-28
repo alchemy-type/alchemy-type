@@ -20,8 +20,6 @@ class Home extends Component {
         const homeFooter = new HomeFooter();
         const homeFooterDOM = homeFooter.render();
 
-
-
         authApi.checkAuth((data) => {
             this.state.user = data;
             const header = new Header({ user: this.state.user });
@@ -30,7 +28,6 @@ class Home extends Component {
         });
 
         const main = dom.querySelector('main');
-
 
         main.appendChild(logoDOM);
         main.appendChild(homeNavDOM);
