@@ -51,12 +51,11 @@ class Practice extends Component {
         const logo = new Logo();
         const logoDOM = logo.render();
 
-        const header = new Header({ user: this.state.user });
-        const headerDOM = header.render();
-
         authApi.checkAuth((data) => {
             this.state.user = data;
-            header.update({ user: this.state.user });
+            const header = new Header({ user: this.state.user });
+            const headerDOM = header.render();
+            dom.prepend(headerDOM);
         });
 
         const timerDisplay = new Timer({ seconds, minutes });
@@ -179,8 +178,6 @@ class Practice extends Component {
         userInput.addEventListener('blur', () => {
             userInput.focus();
         });
-
-        dom.prepend(headerDOM);
 
         main.prepend(timerDisplayDOM);
         main.prepend(passageTitleDOM);
