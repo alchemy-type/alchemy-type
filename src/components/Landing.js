@@ -9,12 +9,11 @@ class Landing extends Component {
     render() {
         const dom = this.renderDOM();
 
-        const header = new Header({ user: this.state.user });
-        const headerDOM = header.render();
-
         authApi.checkAuth((data) => {
             this.state.user = data;
-            header.update({ user: this.state.user });
+            const header = new Header({ user: this.state.user });
+            const headerDOM = header.render();
+            dom.prepend(headerDOM);
         });
 
         const logo = new Logo();
@@ -25,7 +24,6 @@ class Landing extends Component {
 
         const main = dom.querySelector('main');
 
-        dom.prepend(headerDOM);
         main.appendChild(logoDOM);
         main.appendChild(landingNavDOM);
 
