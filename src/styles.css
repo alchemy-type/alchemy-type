@@ -23,6 +23,10 @@ header h1 {
     margin: 0;
 }
 
+header h2 {
+    padding: 0 10px;
+}
+
 header a, header a:visited, header a:hover, header a:active {
     color:#84ef8e;
     text-decoration: none;

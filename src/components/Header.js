@@ -8,8 +8,8 @@ class Header extends Component {
         <header>
             <h1>Alchemy Type</h1>
             <section class="user-header">
-                <h1>${user.name || ''}</h1>
-                <a href='./login.html'><h1>${user.email ? 'Logout' : 'Login'}</h1></a>
+                <h2>${user.name || ''}</h2>
+                <a href='./login.html'><h2>${user.email ? 'Logout' : 'Login'}</h2></a>
             </section>
         </header>
     `;
