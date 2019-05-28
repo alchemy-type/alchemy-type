@@ -1,6 +1,9 @@
 import Component from './Component.js';
 import Logo from './Logo.js';
 import Footer from './Footer.js';
+import Header from './Header.js';
+
+import authApi from '../services/auth-api.js';
 import statsApi from '../services/stats-api.js';
 
 class Stats extends Component {
@@ -14,6 +17,14 @@ class Stats extends Component {
         const footer = new Footer();
         const footerDOM = footer.render();
 
+        const header = new Header({ user: this.state.user });
+        const headerDOM = header.render();
+
+        authApi.checkAuth((data) => {
+            this.state.user = data;
+            header.update({ user: this.state.user });
+        });
+
         statsApi.init();
         const stats = statsApi.get();
 
@@ -26,8 +37,11 @@ class Stats extends Component {
         const passages = dom.querySelector('#passages');
         passages.textContent = stats.passages;
 
-        dom.prepend(logoDOM);
-        dom.appendChild(footerDOM);
+        const main = dom.querySelector('main');
+
+        dom.prepend(headerDOM);
+        main.appendChild(logoDOM);
+        main.appendChild(footerDOM);
 
         return dom;
     }
@@ -35,21 +49,24 @@ class Stats extends Component {
     renderTemplate() {
         return /*html*/`
         <div>
-        <h1>Average Typing Statistics</h1>
-        <main id="stats-container">
-            <section class="stat">
-                <label>Average WPM:</label>
-                <p id="avg-wpm"></p>
-            </section>
+        
+        <main class="container">
+            <h1>Average Typing Statistics</h1>
+            <section id="stats-container">
+                <section class="stat">
+                    <label>Average WPM:</label>
+                    <p id="avg-wpm"></p>
+                </section>
 
-            <section class="stat">
-                <label>Average # of Errors:</label>
-                <p id="avg-error-count"></p>
-            </section>
+                <section class="stat">
+                    <label>Average # of Errors:</label>
+                    <p id="avg-error-count"></p>
+                </section>
 
-            <section class="stat">
-                <label>Passages Completed: </label>
-                <p id="passages"></p>
+                <section class="stat">
+                    <label>Passages Completed: </label>
+                    <p id="passages"></p>
+                </section>
             </section>
         </main>
         </div>
