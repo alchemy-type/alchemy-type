@@ -186,7 +186,7 @@ class Practice extends Component {
         main.prepend(passageTitleDOM);
         main.prepend(logoDOM);
 
-        dom.appendChild(practiceStatsDOM);
+        main.appendChild(practiceStatsDOM);
 
         return dom;
     }
