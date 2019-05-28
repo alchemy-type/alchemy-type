@@ -3,7 +3,9 @@ import Logo from './Logo.js';
 import Timer from './Timer.js';
 import PassageTitle from './PassageTitle.js';
 import PracticeStats from './PracticeStats.js';
+import Header from './Header.js';
 
+import authApi from '../services/auth-api.js';
 import passageApi from '../services/passage-api.js';
 import createSpans from '../pages/practice/create-spans.js';
 import handleEnter from '../pages/practice/handle-enter.js';
@@ -48,6 +50,14 @@ class Practice extends Component {
 
         const logo = new Logo();
         const logoDOM = logo.render();
+
+        const header = new Header({ user: this.state.user });
+        const headerDOM = header.render();
+
+        authApi.checkAuth((data) => {
+            this.state.user = data;
+            header.update({ user: this.state.user });
+        });
 
         const timerDisplay = new Timer({ seconds, minutes });
         const timerDisplayDOM = timerDisplay.render();
@@ -170,9 +180,11 @@ class Practice extends Component {
             userInput.focus();
         });
 
-        dom.insertBefore(logoDOM, main);
-        dom.insertBefore(passageTitleDOM, main);
-        dom.insertBefore(timerDisplayDOM, main);
+        dom.prepend(headerDOM);
+
+        main.prepend(timerDisplayDOM);
+        main.prepend(passageTitleDOM);
+        main.prepend(logoDOM);
 
         dom.appendChild(practiceStatsDOM);
 
