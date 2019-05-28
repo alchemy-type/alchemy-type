@@ -17,12 +17,11 @@ class Login extends Component {
         const footer = new Footer();
         const footerDOM = footer.render();
 
-        const header = new Header({ user: this.state.user });
-        const headerDOM = header.render();
-
         authApi.checkAuth((data) => {
             this.state.user = data;
-            header.update({ user: this.state.user });
+            const header = new Header({ user: this.state.user });
+            const headerDOM = header.render();
+            dom.prepend(headerDOM);
         });
 
         const loginForm = new LoginForm({
@@ -35,7 +34,6 @@ class Login extends Component {
 
         const main = dom.querySelector('main');
 
-        dom.prepend(headerDOM);
         main.prepend(logoDOM);
         main.appendChild(loginFormDOM);
         main.appendChild(footerDOM);

@@ -17,12 +17,11 @@ class Register extends Component {
         const footer = new Footer();
         const footerDOM = footer.render();
 
-        const header = new Header({ user: this.state.user });
-        const headerDOM = header.render();
-
         authApi.checkAuth((data) => {
             this.state.user = data;
-            header.update({ user: this.state.user });
+            const header = new Header({ user: this.state.user });
+            const headerDOM = header.render();
+            dom.prepend(headerDOM);
         });
 
         const form = dom.querySelector('form');
@@ -43,7 +42,6 @@ class Register extends Component {
 
         const main = dom.querySelector('main');
 
-        dom.prepend(headerDOM);
         main.prepend(logoDOM);
         main.appendChild(footerDOM);
 
