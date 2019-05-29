@@ -6,46 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./src/styles.css">
-    <link rel="stylesheet" href="./src/practice/practice.css">
+    <link rel="stylesheet" href="./src/pages/practice/practice.css">
     <title>Alchemy Type - Practice</title>
 </head>
 
-<body class="container">
-    <header>
-        <a href="./index.html"><img src="./assets/alchemy-type.png" id="logo"></a>
-        <h1 id="title"></h1>
-        <p id="timer">
-            <label id="minutes">00</label>:<label id="seconds">00</label>
-        </p>
-    </header>
-
-    <main class="container">
-        <section id="passage-characters"></section>
-        <textarea id="passage-input" autofocus></textarea>
-    </main>
-
-    <section id="stats-container" class="hidden">
-        <section id="small-stats">
-            <section class="stat">
-                <label>WPM:</label>
-                <p id="wpm"></p>
-            </section>
-
-            <section class="stat">
-                <label>Error Count:</label>
-                <p id="error-count"></p>
-            </section>
-        </section>
-        <section class="stat">
-            <label>Errors:</label>
-            <p id="errors"></p>
-        </section>
-        <section id="buttons">
-            <a href="./index.html"><button>Back Home</button></a>
-            <a href="./passage-list.html"><button>Passages</button></a>
-        </section>
-    </section>
-
-    <script type="module" src="./src/practice/practice.js"></script>
+<body>
+    <div id="app"></div>
+    <script type="module" src="./src/pages/practice/index.js"></script>
 </body>
+
 </html>

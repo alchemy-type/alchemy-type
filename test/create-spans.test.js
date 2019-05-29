@@ -1,4 +1,4 @@
-import createSpans from '../src/practice/create-spans.js';
+import createSpans from '../src/pages/practice/create-spans.js';
 const test = QUnit.test;
 
 QUnit.module('Create spans');
@@ -10,7 +10,7 @@ test('create spans from single line passagetext', function(assert) {
     const parent = document.createElement('section');
     parent.id = 'passage-characters';
     //Act
-    const result = createSpans(passageText, parent); 
+    const result = createSpans(passageText, parent);
     //Assert
 
     assert.equal(result.outerHTML, expected);

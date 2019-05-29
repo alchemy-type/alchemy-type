@@ -1,5 +1,5 @@
-let minutesLabel = document.getElementById('minutes');
-let secondsLabel = document.getElementById('seconds');
+let minutesLabel = document.querySelector('#minutes');
+let secondsLabel = document.querySelector('#seconds');
 let totalSeconds = 0;
 
 function reset() {
@@ -21,4 +21,4 @@ function time(time) {
     }
 }
 
-export { stopWatch, reset, totalSeconds };
+export { stopWatch, reset, totalSeconds, time };

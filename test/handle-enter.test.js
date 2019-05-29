@@ -1,5 +1,5 @@
-import handleEnter from '../src/practice/handle-enter.js';
-import createSpans from '../src/practice/create-spans.js';
+import handleEnter from '../src/pages/practice/handle-enter.js';
+import createSpans from '../src/pages/practice/create-spans.js';
 const test = QUnit.test;
 
 QUnit.module('Handle Enter');
