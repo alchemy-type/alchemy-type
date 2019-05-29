@@ -19,6 +19,7 @@ const authApi = {
                 .catch('Error checking authorization');
         } else {
             authApi.redirectLogin();
+            onLoadUser(null);
         }
     },
     redirectLogin() {
