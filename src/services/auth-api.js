@@ -2,7 +2,7 @@ const authApi = {
     checkAuth(onLoadUser) {
         const token = window.sessionStorage.getItem('token');
         if(token) {
-            fetch('http://localhost:3000/login', {
+            fetch('https://alchemy-type-api.herokuapp.com/login', {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json',

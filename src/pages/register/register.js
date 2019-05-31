@@ -1,5 +1,5 @@
 const onSubmitRegister = (user) => {
-    fetch('http://localhost:3000/register', {
+    fetch('https://alchemy-type-api.herokuapp.com/register', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

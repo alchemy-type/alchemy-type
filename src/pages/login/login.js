@@ -2,7 +2,7 @@ import authApi from '../../services/auth-api.js';
 
 const onSubmitLogin = (user, onProcessLogin) => {
     event.preventDefault();
-    fetch('http://localhost:3000/login', {
+    fetch('https://alchemy-type-api.herokuapp.com/login', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
