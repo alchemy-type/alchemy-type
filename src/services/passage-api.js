@@ -33,6 +33,20 @@ const passageApi = {
         if(!passages) {
             passages = [];
         }
+
+        const token = window.sessionStorage.getItem('token');
+        fetch(`http://localhost:3000/passages/`, {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: token
+            }
+        })
+            .then(resp => resp.json())
+            .then(passages => {
+                console.log(passages);
+            });
+
         return passages;
     }
 };
