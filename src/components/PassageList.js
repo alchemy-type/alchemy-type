@@ -6,7 +6,7 @@ import Header from './Header.js';
 
 import authApi from '../services/auth-api.js';
 import passageApi from '../services/passage-api.js';
-import templatePassages from '../services/passage-data.js';
+// import templatePassages from '../services/passage-data.js';
 
 class PassageList extends Component {
 
@@ -30,32 +30,32 @@ class PassageList extends Component {
 
         const main = dom.querySelector('main');
 
-        let passages = passageApi.getAll();
-        let templateArray = [];
+        // let passages = passageApi.getAll();
+        // let templateArray = [];
 
-        templatePassages.forEach(passage => {
-            if(!passageApi.get(passage.id)) {
-                templateArray.push(passage);
-                passageApi.save(passage);
-            }
-        });
+        // templatePassages.forEach(passage => {
+        //     if(!passageApi.get(passage.id)) {
+        //         templateArray.push(passage);
+        //         passageApi.save(passage);
+        //     }
+        // });
 
-        passages = templateArray.concat(passages);
+        // passages = templateArray.concat(passages);
 
-        passages.forEach(passage => {
-            const passageLink = new PassageLink({ passage });
-            const passageLinkDOM = passageLink.render();
-            passageParent.appendChild(passageLinkDOM);
-        });
+        // passages.forEach(passage => {
+        //     const passageLink = new PassageLink({ passage });
+        //     const passageLinkDOM = passageLink.render();
+        //     passageParent.appendChild(passageLinkDOM);
+        // });
 
-        // passageApi.getAll()
-        //     .then(passages => {
-        //         passages.forEach(passage => {
-        //             const passageLink = new PassageLink({ passage });
-        //             const passageLinkDOM = passageLink.render();
-        //             passageParent.appendChild(passageLinkDOM);
-        //         });
-        //     });
+        passageApi.getAll()
+            .then(passages => {
+                passages.forEach(passage => {
+                    const passageLink = new PassageLink({ passage });
+                    const passageLinkDOM = passageLink.render();
+                    passageParent.appendChild(passageLinkDOM);
+                });
+            });
 
         main.prepend(logoDOM);
         main.appendChild(footerDOM);
