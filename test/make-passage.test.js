@@ -11,7 +11,7 @@ test('Test saving a passage and get it back', assert => {
         description: 'A test passage',
         language: 'JavaScript',
         title: 'passage',
-        text: 'This is a test passage.\nThis is a second line',
+        content: 'This is a test passage.\nThis is a second line',
         date: date.toString()
     };
 
@@ -20,7 +20,7 @@ test('Test saving a passage and get it back', assert => {
     formData.set('description', passage.description);
     formData.set('language', passage.language);
     formData.set('title', passage.title);
-    formData.set('text', passage.text);
+    formData.set('content', passage.content);
     formData.set('date', passage.date);
 
     //Act 
