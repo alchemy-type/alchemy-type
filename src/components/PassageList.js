@@ -48,6 +48,15 @@ class PassageList extends Component {
             passageParent.appendChild(passageLinkDOM);
         });
 
+        // passageApi.getAll()
+        //     .then(passages => {
+        //         passages.forEach(passage => {
+        //             const passageLink = new PassageLink({ passage });
+        //             const passageLinkDOM = passageLink.render();
+        //             passageParent.appendChild(passageLinkDOM);
+        //         });
+        //     });
+
         main.prepend(logoDOM);
         main.appendChild(footerDOM);
 

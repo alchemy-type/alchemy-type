@@ -25,6 +25,7 @@ const passageId = searchParams.get('id');
 const passage = passageApi.get(passageId);
 const passageArray = Array.from(passage.content);
 
+
 let emptyArray = [];
 let errorChars = [];
 
