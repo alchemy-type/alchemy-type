@@ -29,7 +29,7 @@ class PassageForm extends Component {
             <label>Description:</label>
             <input id="description" name="description" maxlength="240">
             <label>Text:</label>
-            <textarea id="text" name="text" placeholder="Type or insert your passage here." required></textarea>
+            <textarea id="content" name="content" placeholder="Type or insert your passage here." required></textarea>
             <label for="language">Language:</label>
             <select name="language" required>
                 <option value="" hidden disabled selected>Language</option>

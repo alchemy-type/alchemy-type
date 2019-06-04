@@ -2,7 +2,7 @@ const functions = {
     id: 'functions',
     title: 'Javascript Functions',
     description: 'Practice typing Javascript functions!',
-    text: `function anotherNiceFunction() {
+    content: `function anotherNiceFunction() {
     return 'I'm another function!';
 }
 anotherNiceFunction();
@@ -23,7 +23,7 @@ const loops = {
     id: 'loops',
     title: 'Javascript Loops',
     description: 'Javascript loops are fun! How fast can you type?',
-    text: `for(let i = 0; i < 100; i++) {
+    content: `for(let i = 0; i < 100; i++) {
     console.log('The number is ', i);
 
 for(let i = 0; i <= 50; i += 2) {

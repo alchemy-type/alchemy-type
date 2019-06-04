@@ -15,7 +15,7 @@ test('Test saving a passage and get it back', assert => {
         description: 'Test passage 1',
         language: 'JavaScript',
         title: 'Passage Title',
-        text: 'This is a test passage.\nThis is a second line',
+        content: 'This is a test passage.\nThis is a second line',
         date: date
     };
     const passage2 = {
@@ -23,7 +23,7 @@ test('Test saving a passage and get it back', assert => {
         description: 'Test passage 2',
         language: 'JavaScript',
         title: 'Passage Title',
-        text: 'This is a test passage.\nThis is a second line',
+        content: 'This is a test passage.\nThis is a second line',
         date: date
     };
     const passage3 = {
@@ -31,7 +31,7 @@ test('Test saving a passage and get it back', assert => {
         description: 'Test passage 3',
         language: 'JavaScript',
         title: 'Passage Title',
-        text: 'This is a test passage.\nThis is a second line',
+        content: 'This is a test passage.\nThis is a second line',
         date: date
     };
     //Act 

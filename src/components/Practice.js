@@ -72,7 +72,7 @@ class Practice extends Component {
         const passageParent = dom.querySelector('#passage-characters');
         let userInput = dom.querySelector('#passage-input');
 
-        createSpans(passage.text, passageParent);
+        createSpans(passage.content, passageParent);
 
         emptyArray = handleEnter(userInputLength, passageArray, passageParent, emptyArray);
         userInputLength = emptyArray.length;
