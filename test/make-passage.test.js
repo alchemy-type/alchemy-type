@@ -1,4 +1,4 @@
-import makePassage from '../src/passage-form/make-passage.js';
+import makePassage from '../src/pages/passage-entry/make-passage.js';
 
 const test = QUnit.test;
 QUnit.module('make passage');

@@ -1,4 +1,4 @@
-import detectTab from '../src/practice/detect-tab.js';
+import detectTab from '../src/pages/practice/detect-tab.js';
 const test = QUnit.test;
 
 QUnit.module('detect tab');

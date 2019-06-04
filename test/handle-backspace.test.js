@@ -1,5 +1,5 @@
-import createSpans from '../src/practice/create-spans.js';
-import handleBackspace from '../src/practice/handle-backspace.js';
+import createSpans from '../src/pages/practice/create-spans.js';
+import handleBackspace from '../src/pages/practice/handle-backspace.js';
 const test = QUnit.test;
 
 QUnit.module('handleBackspace');

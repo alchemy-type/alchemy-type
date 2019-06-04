@@ -1,4 +1,4 @@
-import calcStats from '../src/practice/calc-stats.js';
+import calcStats from '../src/pages/practice/calc-stats.js';
 const test = QUnit.test;
 
 QUnit.module('make object from stats');
