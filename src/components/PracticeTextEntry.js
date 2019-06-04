@@ -1,6 +1,6 @@
 import Component from './Component.js';
 
-class Header extends Component {
+class PracticeTextEntry extends Component {
 
     render() {
         const dom = this.renderDOM();
@@ -24,4 +24,4 @@ class Header extends Component {
 
 }
 
-export default Header;
+export default PracticeTextEntry;
