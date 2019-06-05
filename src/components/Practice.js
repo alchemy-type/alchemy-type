@@ -23,7 +23,7 @@ import passageApi from '../services/passage-api.js';
 const searchParams = new URLSearchParams(window.location.search);
 const passageId = searchParams.get('id');
 
-const passage = passageApi.get(passageId);
+// const passage = passageApi.get(passageId);
 // const passageArray = Array.from(passage.content);
 
 
