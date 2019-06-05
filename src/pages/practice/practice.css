@@ -100,7 +100,7 @@ span.comment {
     color: white;
 }
 
-#passage-input {
+.passage-input {
     opacity: 0;
     position: fixed;
     left: -100%;
