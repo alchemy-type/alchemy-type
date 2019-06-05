@@ -64,6 +64,7 @@ class Practice extends Component {
             passageApi.get(passageId)
                 .then(passage => {
                     practiceTextEntry.update({ passage });
+                    passageTitle.update({ title: passage.title });
                 });
         }
         loadPassage(passageId);
@@ -71,20 +72,21 @@ class Practice extends Component {
         const main = dom.querySelector('main');
 
         const practiceTextEntry = new PracticeTextEntry({ passage: {} });
-        main.appendChild(practiceTextEntry.render());
+
+        const passageTitle = new PassageTitle({ title: '' });
 
         const timerDisplay = new Timer({ seconds, minutes });
         const timerDisplayDOM = timerDisplay.render();
 
-        const passageTitle = new PassageTitle({ title: passage.title });
-        const passageTitleDOM = passageTitle.render();
+
 
         // const practiceStats = new PracticeStats({ wpm, errorChars, statsClass });
         // const practiceStatsDOM = practiceStats.render();
 
-        main.prepend(timerDisplayDOM);
-        main.prepend(passageTitleDOM);
-        main.prepend(logoDOM);
+        main.appendChild(logoDOM);
+        main.appendChild(passageTitle.render());
+        main.appendChild(timerDisplayDOM);
+        main.appendChild(practiceTextEntry.render());
 
         // main.appendChild(practiceStatsDOM);
 
