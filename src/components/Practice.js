@@ -92,6 +92,14 @@ class Practice extends Component {
                 // statsApi.save(stats);
                 // practiceStats.update({ wpm, errorChars, statsClass });
                 clearInterval(timer);
+            },
+            onResetTimer: () => {
+                clearInterval(timer);
+                // errorChars = [];
+                totalSeconds = 0;
+                minutes = '00';
+                seconds = '00';
+                timerDisplay.update({ seconds, minutes });
             }
         });
 

@@ -23,6 +23,7 @@ class PracticeTextEntry extends Component {
         const passage = this.props.passage;
         const onStartTimer = this.props.onStartTimer;
         const onStopTimer = this.props.onStopTimer;
+        const onResetTimer = this.props.onResetTimer;
 
         const passageParent = dom.querySelector('#passage-characters');
         const userInput = dom.querySelector('textarea');
@@ -102,12 +103,7 @@ class PracticeTextEntry extends Component {
 
                 // Reset timer if user deletes to first character
                 if(userInputLength === startingChar) {
-                    // clearInterval(timer);
-                    // errorChars = [];
-                    // totalSeconds = 0;
-                    // minutes = '00';
-                    // seconds = '00';
-                    // timerDisplay.update({ seconds, minutes });
+                    onResetTimer();
                 }
 
                 // Handle cursor/text coloring
