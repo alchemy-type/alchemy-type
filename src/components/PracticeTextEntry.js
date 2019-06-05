@@ -29,7 +29,7 @@ class PracticeTextEntry extends Component {
             userInput.focus();
         });
 
-        if(!passage.content) {
+        if (!passage.content) {
             return dom;
         }
 
@@ -50,7 +50,7 @@ class PracticeTextEntry extends Component {
             userInput.value = '';
 
             // Start timer on first character
-            if(userInputLength === startingChar + 1) {
+            if (userInputLength === startingChar + 1) {
                 // timerDisplay.update({ action: 'start' });
                 // timer = setInterval(() => {
                 //     totalSeconds++;
@@ -62,7 +62,7 @@ class PracticeTextEntry extends Component {
 
             gameOver = checkEndGame(passageArray, emptyArray, endingChar);
 
-            if(!gameOver) {
+            if (!gameOver) {
                 let cursorObj = handleCursor(emptyArray, passageArray, passageParent, currentChar, userInputLength, matchFlag, errorChars);
                 currentChar = cursorObj.currentChar;
                 matchFlag = cursorObj.matchFlag;
@@ -79,16 +79,16 @@ class PracticeTextEntry extends Component {
                 // clearInterval(timer);
             }
 
-            if(enterFlag && matchFlag) {
+            if (enterFlag && matchFlag) {
                 emptyArray = handleEnter(userInputLength, passageArray, passageParent, emptyArray);
                 userInputLength = emptyArray.length;
                 currentChar = handleCurrentChar(passageParent, currentChar, userInputLength);
 
-                if(userInputLength < passageParent.children.length) {
+                if (userInputLength < passageParent.children.length) {
                     let viewportOffset = passageParent.children[userInputLength].getBoundingClientRect();
                     let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-                    if(viewportOffset.bottom + viewportOffset.height + 100 > viewportHeight) {
+                    if (viewportOffset.bottom + viewportOffset.height + 100 > viewportHeight) {
                         setTimeout(() => {
                             currentChar.scrollIntoView({ block: 'center' });
                         });
@@ -102,19 +102,18 @@ class PracticeTextEntry extends Component {
         });
 
         userInput.addEventListener('keydown', event => {
-            console.log(event.code);
-            if(event.code === 'Tab')
+            if (event.code === 'Tab')
                 event.preventDefault();
             userInputLength = emptyArray.length;
-            if(event.code === 'Enter') {
+            if (event.code === 'Enter') {
                 enterFlag = true;
-            } else if(event.code === 'Backspace' && !gameOver &&
+            } else if (event.code === 'Backspace' && !gameOver &&
                 userInputLength !== startingChar) {
                 let deletedChar = emptyArray.pop();
                 userInputLength = emptyArray.length;
 
                 // Reset timer if user deletes to first character
-                if(userInputLength === startingChar) {
+                if (userInputLength === startingChar) {
                     // clearInterval(timer);
                     // errorChars = [];
                     // totalSeconds = 0;
@@ -125,7 +124,7 @@ class PracticeTextEntry extends Component {
 
                 // Handle cursor/text coloring
                 currentChar.classList.remove('typed');
-                if(matchFlag) {
+                if (matchFlag) {
                     emptyArray = handleBackspace(passageParent, emptyArray, userInputLength, deletedChar);
                     userInputLength = emptyArray.length;
                 }
@@ -135,7 +134,7 @@ class PracticeTextEntry extends Component {
             }
 
             // Stop input if the passages don't match or game is over
-            if(!matchFlag || gameOver) {
+            if (!matchFlag || gameOver) {
                 event.preventDefault();
             }
         });
