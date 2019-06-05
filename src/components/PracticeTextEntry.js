@@ -21,6 +21,8 @@ class PracticeTextEntry extends Component {
         const dom = this.renderDOM();
 
         const passage = this.props.passage;
+        const onStartTimer = this.props.onStartTimer;
+        const onStopTimer = this.props.onStopTimer;
 
         const passageParent = dom.querySelector('#passage-characters');
         const userInput = dom.querySelector('textarea');
@@ -51,13 +53,7 @@ class PracticeTextEntry extends Component {
 
             // Start timer on first character
             if(userInputLength === startingChar + 1) {
-                // timerDisplay.update({ action: 'start' });
-                // timer = setInterval(() => {
-                //     totalSeconds++;
-                //     seconds = time(totalSeconds % 60);
-                //     minutes = time(parseInt(totalSeconds / 60));
-                //     timerDisplay.update({ seconds, minutes });
-                // }, 1000);
+                onStartTimer();
             }
 
             gameOver = checkEndGame(passageArray, emptyArray, endingChar);
@@ -68,15 +64,7 @@ class PracticeTextEntry extends Component {
                 matchFlag = cursorObj.matchFlag;
             } else {
                 // Stop timer and display stats on gameOver
-                // if(totalSeconds === 0) {
-                //     totalSeconds = 1;
-                // }
-                // const wpm = calcWPM(emptyArray, totalSeconds);
-                // const stats = calcStats(wpm, errorChars);
-                // statsClass = '';
-                // statsApi.save(stats);
-                // practiceStats.update({ wpm, errorChars, statsClass });
-                // clearInterval(timer);
+                onStopTimer();
             }
 
             if(enterFlag && matchFlag) {
