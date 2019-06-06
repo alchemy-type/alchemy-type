@@ -2,7 +2,7 @@ import Component from './Component.js';
 import Logo from './Logo.js';
 import Timer from './Timer.js';
 import PassageTitle from './PassageTitle.js';
-// import PracticeStats from './PracticeStats.js';
+import PracticeStats from './PracticeStats.js';
 import Header from './Header.js';
 import PracticeTextEntry from './PracticeTextEntry.js';
 
@@ -16,9 +16,9 @@ import passageApi from '../services/passage-api.js';
 // import checkEndGame from '../pages/practice/check-end-game.js';
 // import handleBackspace from '../pages/practice/handle-backspace.js';
 import { time } from '../services/stop-watch.js';
-// import calcWPM from '../pages/practice/calc-WPM.js';
-// import calcStats from '../pages/practice/calc-stats.js';
-// import statsApi from '../services/stats-api.js';
+import calcWPM from '../pages/practice/calc-WPM.js';
+import calcStats from '../pages/practice/calc-stats.js';
+import statsApi from '../services/stats-api.js';
 
 const searchParams = new URLSearchParams(window.location.search);
 const passageId = searchParams.get('id');
@@ -43,7 +43,7 @@ let totalSeconds = 0;
 // let wpm = 0;
 let seconds = '00';
 let minutes = '00';
-// let statsClass = 'hidden';
+let statsClass = 'hidden';
 
 class Practice extends Component {
 
@@ -82,20 +82,20 @@ class Practice extends Component {
                     timerDisplay.update({ seconds, minutes });
                 }, 1000);
             },
-            onStopTimer: () => {
+            onStopTimer: (errorChars, emptyArray) => {
                 if(totalSeconds === 0) {
                     totalSeconds = 1;
                 }
-                // const wpm = calcWPM(emptyArray, totalSeconds);
-                // const stats = calcStats(wpm, errorChars);
-                // statsClass = '';
-                // statsApi.save(stats);
-                // practiceStats.update({ wpm, errorChars, statsClass });
+                const wpm = calcWPM(emptyArray, totalSeconds);
+                const stats = calcStats(wpm, errorChars);
+                statsClass = '';
+                statsApi.save(stats);
                 clearInterval(timer);
+                const practiceStats = new PracticeStats({ wpm, errorChars, statsClass });
+                main.appendChild(practiceStats.render());
             },
             onResetTimer: () => {
                 clearInterval(timer);
-                // errorChars = [];
                 totalSeconds = 0;
                 minutes = '00';
                 seconds = '00';
@@ -108,15 +108,10 @@ class Practice extends Component {
         const timerDisplay = new Timer({ seconds, minutes });
         const timerDisplayDOM = timerDisplay.render();
 
-        // const practiceStats = new PracticeStats({ wpm, errorChars, statsClass });
-        // const practiceStatsDOM = practiceStats.render();
-
         main.appendChild(logoDOM);
         main.appendChild(passageTitle.render());
         main.appendChild(timerDisplayDOM);
         main.appendChild(practiceTextEntry.render());
-
-        // main.appendChild(practiceStatsDOM);
 
         return dom;
     }

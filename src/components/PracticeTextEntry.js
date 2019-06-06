@@ -65,7 +65,7 @@ class PracticeTextEntry extends Component {
                 matchFlag = cursorObj.matchFlag;
             } else {
                 // Stop timer and display stats on gameOver
-                onStopTimer();
+                onStopTimer(errorChars, emptyArray);
             }
 
             if(enterFlag && matchFlag) {
@@ -103,6 +103,7 @@ class PracticeTextEntry extends Component {
 
                 // Reset timer if user deletes to first character
                 if(userInputLength === startingChar) {
+                    errorChars = [];
                     onResetTimer();
                 }
 
@@ -133,8 +134,8 @@ class PracticeTextEntry extends Component {
     renderTemplate() {
         return /*html*/`
             <div>
-            <section id="passage-characters"></section>
-            <textarea class="passage-input" autofocus></textarea>
+                <section id="passage-characters"></section>
+                <textarea class="passage-input" autofocus></textarea>
             </div>
         `;
     }
