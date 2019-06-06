@@ -30,24 +30,6 @@ class PassageList extends Component {
 
         const main = dom.querySelector('main');
 
-        // let passages = passageApi.getAll();
-        // let templateArray = [];
-
-        // templatePassages.forEach(passage => {
-        //     if(!passageApi.get(passage.id)) {
-        //         templateArray.push(passage);
-        //         passageApi.save(passage);
-        //     }
-        // });
-
-        // passages = templateArray.concat(passages);
-
-        // passages.forEach(passage => {
-        //     const passageLink = new PassageLink({ passage });
-        //     const passageLinkDOM = passageLink.render();
-        //     passageParent.appendChild(passageLinkDOM);
-        // });
-
         passageApi.getAll()
             .then(passages => {
                 passages.forEach(passage => {
