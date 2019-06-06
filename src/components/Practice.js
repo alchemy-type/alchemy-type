@@ -8,13 +8,6 @@ import PracticeTextEntry from './PracticeTextEntry.js';
 
 import authApi from '../services/auth-api.js';
 import passageApi from '../services/passage-api.js';
-// import createSpans from '../pages/practice/create-spans.js';
-// import handleEnter from '../pages/practice/handle-enter.js';
-// import handleCurrentChar from '../pages/practice/handle-current-char.js';
-// import getEndingChar from '../pages/practice/get-ending-char.js';
-// import handleCursor from '../pages/practice/handle-cursor.js';
-// import checkEndGame from '../pages/practice/check-end-game.js';
-// import handleBackspace from '../pages/practice/handle-backspace.js';
 import { time } from '../services/stop-watch.js';
 import calcWPM from '../pages/practice/calc-WPM.js';
 import calcStats from '../pages/practice/calc-stats.js';
@@ -23,24 +16,9 @@ import statsApi from '../services/stats-api.js';
 const searchParams = new URLSearchParams(window.location.search);
 const passageId = searchParams.get('id');
 
-// const passage = passageApi.get(passageId);
-// const passageArray = Array.from(passage.content);
-
-
-// let emptyArray = [];
-// let errorChars = [];
-
-// let userInputLength = 0;
-// let matchFlag = true;
-// let gameOver = false;
-// let enterFlag = false;
-// let currentChar = null;
-// let startingChar = null;
-// let endingChar = null;
 let timer = 0;
 
 let totalSeconds = 0;
-// let wpm = 0;
 let seconds = '00';
 let minutes = '00';
 let statsClass = 'hidden';
