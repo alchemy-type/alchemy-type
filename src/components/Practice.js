@@ -28,6 +28,11 @@ class Practice extends Component {
     render() {
         const dom = this.renderDOM();
 
+        let statsGet = statsApi.get();
+        if(!statsGet) {
+            statsApi.init();
+        }
+
         const logo = new Logo();
         const logoDOM = logo.render();
 
