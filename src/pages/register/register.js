@@ -11,7 +11,7 @@ const onSubmitRegister = (user) => {
         .then(response => response.json())
         .then(user => {
             if(user.id) {
-                console.log(user);
+                window.location = './login.html';
             }
         });
 };
