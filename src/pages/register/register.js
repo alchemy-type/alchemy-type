@@ -8,11 +8,8 @@ const onSubmitRegister = (user) => {
             name: user.name
         })
     })
-        .then(response => response.json())
-        .then(user => {
-            if(user.id) {
-                window.location = './login.html';
-            }
+        .then(res => {
+            res.status === 200 ? window.location = './login.html' : null;
         });
 };
 
