@@ -1,11 +1,6 @@
 const passageApi = {
     key: 'passages',
     save(passage) {
-        // let passages = passageApi.getAll();
-        // passages.push(passage);
-        // const passageData = JSON.stringify(passages);
-        // localStorage.setItem(passageApi.key, passageData);
-
         const token = window.sessionStorage.getItem('token');
         if(token) {
             fetch(`http://localhost:3000/passages/`, {
@@ -22,8 +17,6 @@ const passageApi = {
         }
     },
     get(id) {
-        // const passages = passageApi.getAll();
-        // return findById(passages, id);
         const token = window.sessionStorage.getItem('token');
 
         return fetch(`http://localhost:3000/passages/${id}`, {
@@ -36,12 +29,6 @@ const passageApi = {
             .then(resp => resp.json());
     },
     getAll() {
-        // const passageData = localStorage.getItem(passageApi.key);
-        // let passages = JSON.parse(passageData);
-        // if(!passages) {
-        //     passages = [];
-        // }
-        // return passages;
         const token = window.sessionStorage.getItem('token');
         return fetch(`http://localhost:3000/passages/`, {
             method: 'get',
