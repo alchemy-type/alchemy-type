@@ -1,80 +1,84 @@
 main {
-    background-color: #282828c4;
-    height: auto;
-    width: 75vw;
-    border: 3px #84ef8e solid;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
-    text-align: center;
-    margin: 5em auto;
+  background-color: #282828c4;
+  height: auto;
+  width: 75vw;
+  border: 3px #84ef8e solid;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
+  margin: 5em auto;
 }
 
 #logo {
-    width: 400px;
+  width: 400px;
 }
 
 .container {
-    margin: 25px;
-    padding: 25px;
-    width: 400px;
-    border: 2px solid #84ef8e;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px black;
-    background-color: #393939;
-    transition: 1s;
-    animation: fade 1s;
+  margin: 25px;
+  padding: 25px;
+  width: 400px;
+  border: 2px solid #84ef8e;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px black;
+  background-color: #393939;
+  transition: 1s;
+  animation: fade 1s;
 }
 
 .container:hover {
-    box-shadow: 0px 0px 10px white;
-    transition: 1s;
+  box-shadow: 0px 0px 10px white;
+  transition: 1s;
 }
 
 .transition-button {
-    padding: 10px;
-    margin: 10px;
-    font-family: 'Ubuntu Mono';
-    background: #4d4d4d;
-    box-shadow: 0px 0px 5px black;
-    border: 2px solid #84ef8e;
-    border-radius: 10px;
-    color: white;
-    transition: .5s;
-    animation: fade 1s;
+  padding: 10px;
+  margin: 10px;
+  font-family: "Ubuntu Mono";
+  background: #4d4d4d;
+  box-shadow: 0px 0px 5px black;
+  border: 2px solid #84ef8e;
+  border-radius: 10px;
+  color: white;
+  transition: 0.5s;
+  animation: fade 1s;
 }
 
 .transition-button:hover {
-    border: 2px solid white;
-    box-shadow: 0px 0px 10px white;
-    transition: .5s;
-    color:#84ef8e;
-    background: #393939;
+  border: 2px solid white;
+  box-shadow: 0px 0px 10px white;
+  transition: 0.5s;
+  color: #84ef8e;
+  background: #393939;
 }
 
 footer button {
-    width: 100px;
-    border: 2px rgb(104, 104, 104) solid;
+  width: 100px;
+  border: 2px rgb(104, 104, 104) solid;
 }
 
 @keyframes fade {
-    from { opacity: 0 }
-    to { opacity: 1 }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 1000px) {
-    body {
-        height: auto;
-    }
-    section {
-        width: auto;
-        height: auto;
-        display: flex;
-        margin: 5px;
-        flex-direction: column;
-    }
+  body {
+    height: auto;
+  }
+  section {
+    width: auto;
+    height: auto;
+    display: flex;
+    margin: 5px;
+    flex-direction: column;
+  }
 }
