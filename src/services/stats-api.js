@@ -1,10 +1,35 @@
 const statsApi = {
   key: "stats",
   get() {
+    const token = window.sessionStorage.getItem("token");
+    fetch(`http://localhost:3000/stats`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token
+      }
+    })
+      .then(resp => resp.json())
+      .then(console.log);
+
     const statsData = localStorage.getItem(statsApi.key);
     return JSON.parse(statsData);
   },
   save(stats) {
+    const token = window.sessionStorage.getItem("token");
+    console.log(stats);
+    fetch(`http://localhost:3000/stats`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token
+      },
+      body: JSON.stringify({
+        stats
+      })
+    })
+      .then(resp => resp.json())
+      .then(console.log);
     let statsGet = statsApi.get();
     if (!statsGet) {
       statsApi.init();
