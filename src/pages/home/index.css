@@ -74,7 +74,7 @@ footer button {
   body {
     height: auto;
   }
-  section {
+  .container {
     width: auto;
     height: auto;
     display: flex;
