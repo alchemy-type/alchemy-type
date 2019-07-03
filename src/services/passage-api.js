@@ -5,7 +5,7 @@ const passageApi = {
     const token = window.sessionStorage.getItem("token");
     if (token) {
       console.log("saving passage");
-      fetch(`https://alchemy-type-api.herokuapp.com/passages`, {
+      return fetch(`https://alchemy-type-api.herokuapp.com/passages`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
