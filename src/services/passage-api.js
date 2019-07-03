@@ -3,7 +3,7 @@ const passageApi = {
   save(passage) {
     const token = window.sessionStorage.getItem("token");
     if (token) {
-      fetch(`http://localhost:3000/passages/`, {
+      return fetch(`http://localhost:3000/passages/`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",

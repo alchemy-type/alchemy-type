@@ -12,8 +12,9 @@ class PassageForm extends Component {
       const formData = new FormData(dom);
       formData.set("date", Date.now());
       const passage = makePassage(formData);
-      passageApi.save(passage);
-      window.location = "./passage-list.html";
+      passageApi.save(passage).then(id => {
+        window.location = "./passage-list.html";
+      });
     });
 
     return dom;
