@@ -2,7 +2,7 @@ const statsApi = {
   key: "stats",
   get() {
     const token = window.sessionStorage.getItem("token");
-    return fetch(`http://localhost:3000/stats`, {
+    return fetch(`https://alchemy-type-api.herokuapp.com/stats`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -12,7 +12,7 @@ const statsApi = {
   },
   save(stats) {
     const token = window.sessionStorage.getItem("token");
-    fetch(`http://localhost:3000/stats`, {
+    fetch(`https://alchemy-type-api.herokuapp.com/stats`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
