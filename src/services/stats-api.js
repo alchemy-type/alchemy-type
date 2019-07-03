@@ -2,18 +2,16 @@ const statsApi = {
   key: "stats",
   get() {
     const token = window.sessionStorage.getItem("token");
-    fetch(`http://localhost:3000/stats`, {
+    return fetch(`http://localhost:3000/stats`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
         Authorization: token
       }
-    })
-      .then(resp => resp.json())
-      .then(console.log);
+    }).then(resp => resp.json());
 
-    const statsData = localStorage.getItem(statsApi.key);
-    return JSON.parse(statsData);
+    // const statsData = localStorage.getItem(statsApi.key);
+    // return JSON.parse(statsData);
   },
   save(stats) {
     const token = window.sessionStorage.getItem("token");

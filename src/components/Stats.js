@@ -2,6 +2,9 @@ import Component from "./Component.js";
 import Logo from "./Logo.js";
 import Footer from "./Footer.js";
 import Header from "./Header.js";
+import WPMStat from "./WPMStat.js";
+import PassagesStat from "./PassagesStat.js";
+import ErrorsStat from "./ErrorsStat.js";
 
 import authApi from "../services/auth-api.js";
 import statsApi from "../services/stats-api.js";
@@ -23,19 +26,26 @@ class Stats extends Component {
       dom.prepend(headerDOM);
     });
 
-    statsApi.init();
-    const stats = statsApi.get();
+    statsApi.get().then(stats => {
+      console.log(stats);
 
-    const avgWPM = dom.querySelector("#avg-wpm");
-    avgWPM.textContent = stats.avgWPM.toFixed(2);
+      const wpmStat = new WPMStat({
+        wpm: stats.avg_wpm
+      });
+      const errorsStat = new ErrorsStat({
+        errors: stats.avg_errors
+      });
+      const passagesStat = new PassagesStat({
+        passages: stats.passages
+      });
 
-    const avgErrors = dom.querySelector("#avg-error-count");
-    avgErrors.textContent = stats.avgErrors.toFixed(2);
-
-    const passages = dom.querySelector("#passages");
-    passages.textContent = stats.passages;
+      statsContainer.appendChild(wpmStat.render());
+      statsContainer.appendChild(errorsStat.render());
+      statsContainer.appendChild(passagesStat.render());
+    });
 
     const main = dom.querySelector("main");
+    const statsContainer = dom.querySelector("#stats-container");
 
     main.prepend(logoDOM);
     main.appendChild(footerDOM);
@@ -48,22 +58,7 @@ class Stats extends Component {
       <div>
         <main class="container">
           <h1>Average Typing Statistics</h1>
-          <section id="stats-container">
-            <section class="stat">
-              <label>Average WPM:</label>
-              <p id="avg-wpm"></p>
-            </section>
-
-            <section class="stat">
-              <label>Average # of Errors:</label>
-              <p id="avg-error-count"></p>
-            </section>
-
-            <section class="stat">
-              <label>Passages Completed: </label>
-              <p id="passages"></p>
-            </section>
-          </section>
+          <section id="stats-container"></section>
         </main>
       </div>
     `;
