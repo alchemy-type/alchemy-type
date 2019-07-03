@@ -1,9 +1,11 @@
 const passageApi = {
   key: "passages",
   save(passage) {
+    console.log("Checking token");
     const token = window.sessionStorage.getItem("token");
     if (token) {
-      fetch(`https://alchemy-type-api.herokuapp.com/passages/`, {
+      console.log("saving passage");
+      fetch(`https://alchemy-type-api.herokuapp.com/passages`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +30,7 @@ const passageApi = {
   },
   getAll() {
     const token = window.sessionStorage.getItem("token");
-    return fetch(`https://alchemy-type-api.herokuapp.com/passages/`, {
+    return fetch(`https://alchemy-type-api.herokuapp.com/passages`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
