@@ -1,5 +1,5 @@
-import getEndingChar from '../src/practice/get-ending-char.js';
-import createSpans from '../src/practice/create-spans.js';
+import getEndingChar from '../src/pages/practice/get-ending-char.js';
+import createSpans from '../src/pages/practice/create-spans.js';
 const test = QUnit.test;
 
 QUnit.module('getEndingChar');

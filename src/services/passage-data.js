@@ -1,8 +1,8 @@
 const functions = {
-    id: 'functions',
-    title: 'Javascript Functions',
-    description: 'Practice typing Javascript functions!',
-    text: `function anotherNiceFunction() {
+  id: "functions",
+  title: "Javascript Functions",
+  description: "Practice typing Javascript functions!",
+  content: `function anotherNiceFunction() {
     return 'I'm another function!';
 }
 anotherNiceFunction();
@@ -20,10 +20,10 @@ function functionWithOneParameter(parameter) {
 };
 
 const loops = {
-    id: 'loops',
-    title: 'Javascript Loops',
-    description: 'Javascript loops are fun! How fast can you type?',
-    text: `for(let i = 0; i < 100; i++) {
+  id: "loops",
+  title: "Javascript Loops",
+  description: "Javascript loops are fun! How fast can you type?",
+  content: `for(let i = 0; i < 100; i++) {
     console.log('The number is ', i);
 
 for(let i = 0; i <= 50; i += 2) {

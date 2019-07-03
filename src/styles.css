@@ -1,19 +1,60 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono");
 
 html {
-    background-color: #000000ea;
-    color: white;
-    font-family: 'Ubuntu Mono', monospace;
+  background-color: #000000ea;
+  color: white;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #84ef8e;
+  padding: 5px;
+}
+
+header h1 {
+  padding: 0 10px;
+  margin: 0;
+}
+
+header h2 {
+  padding: 0 10px;
+}
+
+header a,
+header a:visited,
+header a:hover,
+header a:active {
+  color: #84ef8e;
+  text-decoration: none;
 }
 
 .container {
-    background-color: #282828c4;
-    border: 3px #84ef8e solid;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px black;
+  background-color: #282828c4;
+  border: 3px #84ef8e solid;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px black;
 }
 
 button {
-    font-size: 1.1em;
-    outline: none;
+  font-size: 1.1em;
+  outline: none;
+}
+
+#logo {
+  width: 300px;
+}
+
+.login-error {
+  color: red;
+}
+
+.user-header {
+  display: flex;
 }

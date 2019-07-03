@@ -1,0 +1,132 @@
+/* html {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* body {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 75vw;
+    margin: 0;
+    height: auto;
+} */
+
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #84ef8e;
+  padding: 5px;
+}
+
+header h1 {
+  padding: 0 10px;
+  margin: 0;
+}
+
+header a,
+header a:visited,
+header a:hover,
+header a:active {
+  color: #84ef8e;
+  text-decoration: none;
+}
+
+main {
+  background-color: #282828c4;
+  height: auto;
+  width: 75vw;
+  border: 3px #84ef8e solid;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
+  margin: 5em auto;
+}
+
+h1 {
+  text-shadow: 0px 0px 15px black;
+}
+
+#logo {
+  width: 400px;
+}
+
+#stats-container {
+  display: flex;
+  display: row;
+  justify-content: center;
+  align-items: center;
+  width: 75vw;
+  animation: fade 1s;
+}
+
+.stat {
+  padding-top: 10px;
+  min-width: 15vw;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #282828c4;
+  border: 3px #84ef8e solid;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px black;
+  transition: 1s;
+}
+
+.stat:hover {
+  box-shadow: 0px 0px 10px white;
+  transition: 1s;
+}
+
+button {
+  padding: 10px;
+  margin: 10px;
+  font-family: "Ubuntu Mono";
+  background: #4d4d4d;
+  box-shadow: 0px 0px 5px black;
+  border: 2px solid #84ef8e;
+  border-radius: 10px;
+  color: white;
+  transition: 0.5s;
+}
+
+button:hover {
+  border: 2px solid white;
+  box-shadow: 0px 0px 10px white;
+  transition: 0.5s;
+  color: #84ef8e;
+  background: #393939;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #stats-container {
+    flex-direction: column;
+  }
+  .stat {
+    width: 22vw;
+    margin: 10px;
+  }
+}

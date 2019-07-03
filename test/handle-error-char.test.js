@@ -1,5 +1,5 @@
-import handleErrorChar from '../src/practice/handle-error-char.js';
-import createSpans from '../src/practice/create-spans.js';
+import handleErrorChar from '../src/pages/practice/handle-error-char.js';
+import createSpans from '../src/pages/practice/create-spans.js';
 
 const test = QUnit.test;
 

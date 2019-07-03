@@ -1,35 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./src/styles.css">
-    <link rel="stylesheet" href="./src/stats/stats.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <link rel="stylesheet" href="./src/pages/stats/stats.css" />
     <title>Alchemy Type - Stats</title>
-</head>
-<body class="container">
-    <header>
-        <a href="./index.html"><img id="logo" src="assets/alchemy-type.png"></a>
-    </header>
-    <h1>Average Typing Statistics</h1>
-    <section id="stats-container" class=>
-        <section class="stat">
-            <label>Average WPM:</label>
-            <p id="avg-wpm"></p>
-        </section>
+  </head>
 
-        <section class="stat">
-            <label>Average # of Errors:</label>
-            <p id="avg-error-count"></p>
-        </section>
-
-        <section class="stat">
-            <label>Passages Completed: </label>
-            <p id="passages"></p>
-        </section>
-    </section>
-    <a href="index.html"><button>Back Home</button></a>
-    <script type="module" src="./src/stats/stats.js"></script>
-</body>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="./src/pages/stats/index.js"></script>
+  </body>
 </html>
