@@ -6,7 +6,7 @@ class WPMStat extends Component {
     return /*html*/ `
       <section class="stat">
         <label>Average WPM:</label>
-        <p id="avg-wpm">${wpm}</p>
+        <p id="avg-wpm">${wpm.toFixed(2)}</p>
       </section>
     `;
   }

@@ -6,7 +6,7 @@ class ErrorsStat extends Component {
     return /*html*/ `
       <section class="stat">
         <label>Average # of Errors:</label>
-        <p id="avg-error-count">${errors}</p>
+        <p id="avg-error-count">${errors.toFixed(2)}</p>
       </section>
     `;
   }

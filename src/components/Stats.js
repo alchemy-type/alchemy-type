@@ -27,8 +27,6 @@ class Stats extends Component {
     });
 
     statsApi.get().then(stats => {
-      console.log(stats);
-
       const wpmStat = new WPMStat({
         wpm: stats.avg_wpm
       });
